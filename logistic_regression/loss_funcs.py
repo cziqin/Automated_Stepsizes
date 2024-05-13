@@ -70,28 +70,3 @@ def logistic_gradient(params, samples, targets, l2, normalize=True):
     if normalize:
         return grad
     return grad * len(y)
-
-
-# def logistic_gradient(params, samples, targets, l2, normalize=True):
-#     """
-#     Gradient of the logistic loss at point w with features X, labels y and l2 regularization.
-#     If labels are from {-1, 1}, they will be changed to {0, 1} internally
-#     """
-#     y = (targets + 1) / 2 if -1 in targets else targets
-#
-#     # Compute the predictions
-#     z = np.dot(samples, params)
-#     sigmoid_z = expit(z)  # Sigmoid activation
-#
-#     # Calculate gradient
-#     error = sigmoid_z - y
-#     gradient = np.dot(samples.T, error) / len(samples)
-#
-#     # Add L2 regularization
-#     gradient += l2 * params
-#
-#     # Normalize gradient if required
-#     if normalize:
-#         gradient /= len(samples)
-#
-#     return gradient
