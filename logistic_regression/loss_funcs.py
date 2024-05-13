@@ -47,15 +47,6 @@ def logistic_loss(params, samples, targets, l2):
     return np.mean((1 - y) * z - logsig(z)) + (l2 / 2) * la.norm(params) ** 2
 
 
-# def logistic_loss(params, samples, targets, l2):
-#     z = np.dot(samples, params)
-#     y = np.asarray(targets)
-#     sigmoid_z = expit(z)
-#     log_loss = -np.mean(targets * np.log(sigmoid_z) + (1 - targets) * np.log(1 - sigmoid_z))
-#     l2_penalty = l2 / 2 * np.linalg.norm(params) ** 2
-#     total_loss = log_loss + l2_penalty
-#     return total_loss
-
 
 def logistic_gradient(params, samples, targets, l2, normalize=True):
     """
