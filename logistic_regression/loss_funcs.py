@@ -25,10 +25,6 @@ def safe_sparse_add(a, b):
 
 
 def logsig(x):
-    """
-    Compute the log-sigmoid function component-wise.
-    See http://fa.bianp.net/blog/2019/evaluate_logistic/ for more details.
-    """
     out = np.zeros_like(x)
     idx0 = x < -33
     out[idx0] = x[idx0]
