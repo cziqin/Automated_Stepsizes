@@ -1,7 +1,7 @@
 # Automating Stepsizes for Decentralized Optimization and Learning with Geometric Convergence
 
 This project contains three machine learning experiments: logistic regression, matrix factorization, and neural network training. 
-### Dependencies
+### Requirements
 Please ensure that the following packages are installed:
 ```
 torch==2.0.0+cu117
@@ -25,9 +25,10 @@ The "Mushrooms" dataset used in this experiment was downloaded from the public r
 #### 2. Matrix Factorization
 The main program for the matrix factorization experiment is mf.py, located in the matrix_factorization folder. 
 
-The ``MovieLens 100K" dataset used in this experiment was downloaded from the public repository available at https://grouplens.org/datasets/movielens/
+The ``MovieLens 100K" dataset used in this experiment was downloaded from the public repository available at https://grouplens.org/datasets/movielens/ 
 
 #### 3. Neural Network Training
 The main program for the neural network training experiment is main.py, located in the neural_network folder. 
 
-The "MNIST" dataset and the "CIFAR-10" dataset 
+The "MNIST" dataset and the "CIFAR-10" dataset will be automatically loaded during program execution. They are sourced from the public repositories at http://yann.lecun.com/exdb/mnist/ and https://www.cs.toronto.edu/~kriz/cifar.html, respectively.
+
