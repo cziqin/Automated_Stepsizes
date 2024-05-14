@@ -20,8 +20,14 @@ matplotlib==3.8.3
 #### 1. Logistic Regression
 The main program for the logistic regression experiment is train.py, located in the logistic_regression folder. 
 
+The "Mushrooms" dataset used in this experiment was downloaded from the public repository available at https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/
+
 #### 2. Matrix Factorization
 The main program for the matrix factorization experiment is mf.py, located in the matrix_factorization folder. 
 
+The ``MovieLens 100K" dataset used in this experiment was downloaded from the public repository available at https://grouplens.org/datasets/movielens/
+
 #### 3. Neural Network Training
 The main program for the neural network training experiment is main.py, located in the neural_network folder. 
+
+The "MNIST" dataset and the "CIFAR-10" dataset 
