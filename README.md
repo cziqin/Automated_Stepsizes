@@ -30,5 +30,5 @@ The ``MovieLens 100K" dataset used in this experiment was downloaded from the pu
 #### 3. Neural Network Training
 The main program for the neural network training experiment is main.py, located in the neural_network folder. 
 
-The "MNIST" dataset and the "CIFAR-10" dataset will be automatically loaded during program execution. They are sourced from the public repositories at http://yann.lecun.com/exdb/mnist/ and https://www.cs.toronto.edu/~kriz/cifar.html, respectively.
+The "MNIST" dataset and the "CIFAR-10" dataset will be automatically loaded. They are sourced from the public repositories at http://yann.lecun.com/exdb/mnist/ and https://www.cs.toronto.edu/~kriz/cifar.html, respectively.
 
