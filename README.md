@@ -18,10 +18,10 @@ matplotlib==3.8.3
 ### Running the Experiments
 
 #### 1. Logistic regression
-The "mushrooms" dataset used for this experiment was already included in the logistic_regression folder. To run this experiment, please execute the ``train.py`` file.
+The "mushrooms" dataset used for this experiment is already included in the logistic_regression folder. To run this experiment, please execute the ``train.py`` file.
 
 #### 2. Matrix factorization
-The "MovieLens 100k" dataset used for this experiment was already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
+The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
 
 #### 3. Neural network training
 
