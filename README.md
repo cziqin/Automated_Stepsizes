@@ -15,7 +15,7 @@ sklearn==1.0.2
 matplotlib==3.8.3
 ```
 
-### Running the Experiments
+### Running the experiments
 
 #### 1. Logistic regression
 The "mushrooms" dataset used for this experiment is already included in the logistic_regression folder. To run this experiment, please execute the ``train.py`` file.
