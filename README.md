@@ -25,4 +25,6 @@ The "MovieLens 100k" dataset used for this experiment is already included in the
 
 #### 3. Neural network training
 
-The "MNIST" and "CIFAR-10" datasets used for this experiment will automatically download when you run the ``main.py`` file.
+The "CIFAR-10" dataset used for this experiment will automatically download when you run the ``main.py`` file.
+
+The "ImageNet" dataset is available at https://academictorrents.com/collection/imagenet-2012
