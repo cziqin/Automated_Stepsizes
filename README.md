@@ -28,3 +28,11 @@ The "MovieLens 100k" dataset used for this experiment is already included in the
 The "CIFAR-10" dataset used for this experiment will automatically download when you run the ``main.py`` file.
 
 The "ImageNet" dataset is available at https://academictorrents.com/collection/imagenet-2012
+
+
+### Models
+The CIFAR-10 experiments used a four-layer CNN, which is provided in the file 'models.py' in the 'Neural_Network' folder.
+The ImageNet experiments used a ResNet-18 architecture, which is provided in the file 'resnet.py' within the 'Neural_Network' folder.
+
+### Hardware/computing resources
+The experiments were conducted using a system with 32 CPU cores, 31GB of memory, and an NVIDIA GeForce RTX 4090 GPU with 24GB VRAM.
