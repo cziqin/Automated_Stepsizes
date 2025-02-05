@@ -66,7 +66,7 @@ Ensure that each dataset is downloaded and placed in its corresponding folder be
 ## 💪 Logistic regression
 You can use the following command to execute the logistic regression model:
 ```
-python Logistic_regression/main.py --test_num 0 --iterations 1000
+python .\main.py --test_num 0 --iterations 1000
 ```
 - `--test_num`: Specifies the optimization algorithm to be trained:\
 `0`:Algorithm 1;
