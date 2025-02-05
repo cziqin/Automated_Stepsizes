@@ -33,46 +33,30 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 ### Repository Structure
 
 ```
-├── logistic_regression                 # Directory to implement your custom algorithm/trainable/agent
-│   ├── custom_random_agent
-│   ├── random_policy
+├── Logistic_regression                 # Directory to implement a logistic regression classification problem
+│   ├── loss_function.py                # Defines the loss function 
+│   ├── main.py                         # Entry point
+│   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
+│   ├── mushrooms                       # datasets (DO NOT EDIT)
+│   ├── optimizer.py                    # Optimization algorithms
+│   └── train.py                        # Training script for model training and evaluation
+├── Matirx_factorization
 │   ├── __init__.py
-│   └── registry.py                     # Register your custom agents here
-├── envs
-│   ├── __init__.py
-│   ├── framestack.py                   # Example for using custom env wrappers
-│   ├── procgen_env_wrapper.py          # Base env used during evaluations (DO NOT EDIT)
-├── experiments                         # Directory contaning the config for different experiments
-│   ├── impala-baseline.yaml            # Baseline using impala
-│   ├── procgen-starter-example.yaml    # Sample experiment config file
-│   └── random-policy.yaml              # Sample random policy config file
-├── models                              # Directory to implement custom models
-│   ├── impala_cnn_tf.py
-│   ├── impala_cnn_torch.py
-│   └── my_vision_network.py
-├── preprocessors                       # Directory to implement your custom observation wrappers
-│   ├── __init__.py                     # Register your preprocessors here
-│   └── custom_preprocessor.py
-├── utils                               # Helper scripts for the competition
-│   ├── setup.sh                        # Setup local procgen environment using `conda`
-│   ├── submit.sh                       # Submit your solution
-│   ├── teardown.sh                     # Remove the existing local procgen environment using `conda`
-│   ├── validate_config.py              # Validate the experiment YAML file
-│   └── loader.py
-├── Dockerfile                          # Docker config for your submission environment
-├── aicrowd.json                        # Submission config file (required)
-├── callbacks.py                        # Custom Callbacks & Custom Metrics
-├── requirements.txt                    # These python packages will be installed using `pip`
-├── rollout.py                          # Rollout script (DO NOT EDIT)
-├── run.sh                              # Entrypoint to your submission
-└── train.py                            # Script to trigger the training using `rllib` (DO NOT EDIT)
-
+│   ├── framestack.py                   
+│   ├── procgen_env_wrapper.py          
+├── Neural_networks                         
+│   ├── impala-baseline.yaml            
+│   ├── procgen-starter-example.yaml    
+│   └── random-policy.yaml              
+├── LICENSE                             # License file
+├── README.md                           # List of dependencies required to run the project                   
+└── requirements.txt                                 
 ```
 
 ### Datasets
 | Datasets | Download link | Storage Location|
 | ------ | ------ | ------|
-| Mushrooms | https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/ |`./mushrooms`|
+| Mushrooms | https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/ |`./Logistic_regression/`|
 | MovieLens 100k | https://grouplens.org/datasets/movielens/|`./matrix_factorization/data/`|
 | CIFAR-10 | https://www.cs.toronto.edu/~kriz/cifar.html |`./Neural_networks/data/`|
 | ImageNet | https://academictorrents.com/collection/imagenet-2012 |`./Neural_networks/data/`|
@@ -80,7 +64,7 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 Ensure that each dataset is downloaded and placed in its corresponding folder before running the experiments.
 
 ## 💪 Logistic regression
-This experimental code is located in the Logistic_regression folder. To run the main script, use the following command:
+This experimental code is located in the Logistic_regression. To run the main script, use the following command:
 ```
 python Logistic_regression/main.py --test_num 0 --iterations 1000
 ```
@@ -116,3 +100,9 @@ The ImageNet experiments used a ResNet-18 architecture, which is provided in the
 > Note:
 
 ## 🚀 Discussions
+
+## License
+
+## Authors
+- [Ziqin Chen](https://scholar.google.com/citations?user=i-IM2rIAAAAJ&hl=zh-CN)
+- [Yongqiang Wang](https://scholar.google.com/citations?hl=zh-CN&user=shSZpGUAAAAJ)
