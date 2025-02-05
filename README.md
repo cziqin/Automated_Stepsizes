@@ -15,37 +15,59 @@ The effectiveness of the proposed approach is confirmed using the following thre
 ## 🔧 Installation Tutorial and Preliminaries
 
 ### Install Setup
-1. Clone this repository
-
+1. Clone this [repository](https://github.com/cziqin/Automated_Stepsizes/tree/main)
+2. Download and install [Anaoconda](https://www.anaconda.com) (if you don't have it already)
+3. Create a new conda environment with python 3.12
 ```bash
-git clone https://github.com/AIcrowd/neurips2020-procgen-starter-kit.git
+conda create -n autostep python=3.12
+conda activate autostep
 ```
-
-- Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) (if you don't have it already)
-
-- Create a new environment with python 3.7
-
-```bash
-conda create -n procgen -y
-conda activate procgen
-conda install python=3.7 -y
-```
-
-- Install dependencies
-
-```bash
-conda activate procgen
-pip install ray[rllib]==0.8.6
-pip install procgen
-```
-
-- Install the DL framework of you choice (tensorflow, pytorch, etc.,)
+4. Install any additional packages you need in this environment using conda or pip (tensorflow, pytorch, etc.,)
 ```sh
 pip install -r requiremens.txt
 ```
 
 ### Hardware/computing resources
 The experiments were conducted using a system with 32 CPU cores, 31GB of memory, and an NVIDIA GeForce RTX 4090 GPU with 24GB VRAM.
+
+### Repository Structure
+
+```
+├── logistic_regression                 # Directory to implement your custom algorithm/trainable/agent
+│   ├── custom_random_agent
+│   ├── random_policy
+│   ├── __init__.py
+│   └── registry.py                     # Register your custom agents here
+├── envs
+│   ├── __init__.py
+│   ├── framestack.py                   # Example for using custom env wrappers
+│   ├── procgen_env_wrapper.py          # Base env used during evaluations (DO NOT EDIT)
+├── experiments                         # Directory contaning the config for different experiments
+│   ├── impala-baseline.yaml            # Baseline using impala
+│   ├── procgen-starter-example.yaml    # Sample experiment config file
+│   └── random-policy.yaml              # Sample random policy config file
+├── models                              # Directory to implement custom models
+│   ├── impala_cnn_tf.py
+│   ├── impala_cnn_torch.py
+│   └── my_vision_network.py
+├── preprocessors                       # Directory to implement your custom observation wrappers
+│   ├── __init__.py                     # Register your preprocessors here
+│   └── custom_preprocessor.py
+├── utils                               # Helper scripts for the competition
+│   ├── setup.sh                        # Setup local procgen environment using `conda`
+│   ├── submit.sh                       # Submit your solution
+│   ├── teardown.sh                     # Remove the existing local procgen environment using `conda`
+│   ├── validate_config.py              # Validate the experiment YAML file
+│   └── loader.py
+├── Dockerfile                          # Docker config for your submission environment
+├── aicrowd.json                        # Submission config file (required)
+├── callbacks.py                        # Custom Callbacks & Custom Metrics
+├── requirements.txt                    # These python packages will be installed using `pip`
+├── rollout.py                          # Rollout script (DO NOT EDIT)
+├── run.sh                              # Entrypoint to your submission
+└── train.py                            # Script to trigger the training using `rllib` (DO NOT EDIT)
+
+```
 
 ### Datasets
 | Datasets | Download link | Storage Location|
