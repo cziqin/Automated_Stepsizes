@@ -102,13 +102,13 @@ class Algorithm3(Trainer):
 ![Fig3](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
 
 - Fig. A (and its zoomed-in view of iterations 40 to 160) shows the loss evoluation of Algorithm 1, Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD, respectively.
-- Fig. B shows comparision results of our Algorithm 1 (synchronous updates) with Algorithm 3 (asynchronous parallel updates) under different number of asynchronous-parallel-update iterations in terms of used communication rounds.
-- Fig. C shows comparision results of the average stepsize of 5 agents in the six algorithms.
-- Fig. D shows the median, 1st and 3rd quartiles, and minimum and maximum values of the average stepsize in the six algorithms.
-- Fig. E shows comparision results of average, minimum， and maximum differences in stepsizes between pairs of algorithms.
+- Fig. B compares the communication rounds used by our Algorithm 1 (synchronous updates) and Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
+- Fig. C presents a comparison of the average stepsize of five agents across the six algorithms.
+- Fig. D shows the median, first and third quartiles, and the minimum and maximum values of the average stepsize in the six algorithms.
+- Fig. E compares the average, minimum, and maximum differences in stepsizes between pairs of algorithms.
 - Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
 
-> Note: All experimental results (data) are given in [`results`](https://github.com/cziqin/Automated_Stepsizes/tree/main/Logistic_regression/results).
+> Note: All experimental results (data) are available in [`results`](https://github.com/cziqin/Automated_Stepsizes/tree/main/Logistic_regression/results).
 
 
 ## 💪 Matrix factorization
