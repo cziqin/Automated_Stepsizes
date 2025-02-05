@@ -84,7 +84,7 @@ class Algorithm4(Trainer):
         self.K = 1  # Change this from 1000 to 1 for Algorithm S1
         self.agent_y = {}
 ```
-- The results will be saved as `.csv` files in the `./Logistic_regression/results` directory. 
+- The results (loss, wallclocktime, average stepsizes) will be saved as `.csv` files in the `./Logistic_regression/results` directory. 
 ### Experimental results
 ![Introduction](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
 
