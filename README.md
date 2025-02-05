@@ -64,7 +64,7 @@ class Algorithm4(Trainer):
 ```
 - The results will be saved as `.csv` files in the `./results/` directory. 
 ### Experimental results
-![Introduction](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/introduction.png)
+![Introduction](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
 
 
 
