@@ -1,10 +1,10 @@
 # Automating Stepsizes for Decentralized Optimization and Learning with Geometric Convergence
 Decentralized optimization is a promising paradigm for addressing fundamental challenges in machine learning. However, despite the unprecedented success of existing decentralized optimization and learning methods, the selection of effective stepsizes is still elusive.
-![AIcrowd-Logo](https://raw.githubusercontent.com/AIcrowd/AIcrowd/master/app/assets/images/misc/aicrowd-horizontal.png)
 
 We propose an approach that allows individual agents to autonomously adapt their individual stepsizes. 
 The effectiveness of the proposed approach is confirmed using the following three typical machine learning applications on benchmark datasets, including logistic regression, matrix factorization, and image classification.
-## Outlines
+![Introduction](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/introduction.png)
+## 🕵️ Outlines
 - Installation Tutorial
 - Logistic regression
 - Matrix factorization
@@ -12,7 +12,7 @@ The effectiveness of the proposed approach is confirmed using the following thre
 - Discussions
 - License
 
-## Installation Tutorial and Preliminaries
+## 🔧 Installation Tutorial and Preliminaries
 ### Environment Requirements
 Please ensure that the following packages are installed:
 ```
@@ -45,7 +45,7 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 
 Ensure that each dataset is downloaded and placed in its corresponding folder before running the experiments.
 
-## Logistic regression
+## 💪 Logistic regression
 This experimental code is located in the Logistic_regression folder. To run the main script, use the following command:
 ```
 python Logistic_regression/main.py --test_num 0 --iterations 1000
@@ -63,16 +63,16 @@ class Algorithm4(Trainer):
         self.agent_y = {}
 ```
 - The results will be saved as `.csv` files in the `./results/` directory. 
-### Loss comparision
+### Experimental results
+![Introduction](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/introduction.png)
 
 
 
 
-
-## Matrix factorization
+## 💪 Matrix factorization
 The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
 
-## Neural network training
+## 💪 Neural network training
 ### Cifar 10
 The CIFAR-10 experiments used a four-layer CNN, which is provided in the file 'models.py' in the 'Neural_Network' folder.
 
