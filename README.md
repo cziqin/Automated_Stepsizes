@@ -68,6 +68,7 @@ You can use the following command to execute the logistic regression model:
 ```
 python .\main.py --test_num 0 --iterations 1000
 ```
+![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushroom.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained:\
 `0`:Algorithm 1;
 `1`: Algorithm 3;
@@ -86,7 +87,7 @@ class Algorithm4(Trainer):
 ```
 - The results (loss, wallclocktime, average stepsizes) will be saved as `.csv` files in the `./Logistic_regression/results` directory. 
 ### Experimental results
-![Introduction](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
+![Logistc](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
 
 
 
