@@ -95,7 +95,9 @@ class Algorithm3(Trainer):
         self.Q = 5  # Change default 5 to the desired number of asynchronous-parallel-update iterations
         self.agent_y = {}
 ```
-4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Logistic_regression/results` directory. 
+4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Logistic_regression/results` directory.
+
+> Note: Parameter `self.Q` represents the number of asynchronous-parallel-update iterations of Algorithm 3 and parameter `self.K` represents the number of inner-consensus-loop ietrations of Algorithm 4 and DGM-BB-C.
 ### Experimental results
 ![Fig3](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
 
@@ -106,7 +108,8 @@ class Algorithm3(Trainer):
 - Fig. E shows comparision results of average, minimum， and maximum differences in stepsizes between pairs of algorithms.
 - Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
 
-> Note: All data are saved in [`results`](https://github.com/cziqin/Automated_Stepsizes/tree/main/Logistic_regression/results). Here, $Q$ represents the number of asynchronous-parallel-update iterations of Algorithm 3 and $K$ represents the number of inner-consensus-loop ietrations of Algorithm 4 and DGM-BB-C.
+> Note: All experimental results (data) are given in [`results`](https://github.com/cziqin/Automated_Stepsizes/tree/main/Logistic_regression/results).
+
 
 ## 💪 Matrix factorization
 The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
