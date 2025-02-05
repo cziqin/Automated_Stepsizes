@@ -5,29 +5,41 @@ We propose an approach that allows individual agents to autonomously adapt their
 The effectiveness of the proposed approach is confirmed using the following three typical machine learning applications on benchmark datasets, including logistic regression, matrix factorization, and image classification.
 ![Introduction](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/introduction.png)
 ## 🕵️ Outlines
-- Installation Tutorial
-- Logistic regression
-- Matrix factorization
-- Training of convolutional neural networks
+- Installation Tutorial and Preliminaries
+- Logistic Regression
+- Matrix Factorization
+- Training of Convolutional Neural Networks
 - Discussions
 - License
 
 ## 🔧 Installation Tutorial and Preliminaries
-### Environment Requirements
-Please ensure that the following packages are installed:
-```
-torch==2.0.0+cu117
-torchaudio==2.0.0+cu117
-torchvision==0.15.0+cu117
-python==3.11.3
-numpy==1.26.4
-scipy==1.12.0
-pandas==2.2.1
-sklearn==1.0.2
-matplotlib==3.8.3
-```
 
 ### Install Setup
+1. Clone this repository
+
+```bash
+git clone https://github.com/AIcrowd/neurips2020-procgen-starter-kit.git
+```
+
+- Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) (if you don't have it already)
+
+- Create a new environment with python 3.7
+
+```bash
+conda create -n procgen -y
+conda activate procgen
+conda install python=3.7 -y
+```
+
+- Install dependencies
+
+```bash
+conda activate procgen
+pip install ray[rllib]==0.8.6
+pip install procgen
+```
+
+- Install the DL framework of you choice (tensorflow, pytorch, etc.,)
 ```sh
 pip install -r requiremens.txt
 ```
@@ -80,3 +92,5 @@ The CIFAR-10 experiments used a four-layer CNN, which is provided in the file 'm
 The ImageNet experiments used a ResNet-18 architecture, which is provided in the file 'resnet.py' within the 'Neural_Network' folder.
 
 > Note:
+
+## 🚀 Discussions
