@@ -1,7 +1,8 @@
 # Automating Stepsizes for Decentralized Optimization and Learning with Geometric Convergence
 Decentralized optimization is a promising paradigm for addressing fundamental challenges in machine learning. However, despite the unprecedented success of existing decentralized optimization and learning methods, the selection of effective stepsizes is still elusive.
+![AIcrowd-Logo](https://raw.githubusercontent.com/AIcrowd/AIcrowd/master/app/assets/images/misc/aicrowd-horizontal.png)
 
-We propose an approach that allows individual agents to autonomously adapt their individual stepsizes while ensuring convergence to the exact optimal solution. 
+We propose an approach that allows individual agents to autonomously adapt their individual stepsizes. 
 The effectiveness of the proposed approach is confirmed using the following three typical machine learning applications on benchmark datasets, including logistic regression, matrix factorization, and image classification.
 ## Outlines
 - Installation Tutorial
@@ -11,7 +12,7 @@ The effectiveness of the proposed approach is confirmed using the following thre
 - Discussions
 - License
 
-## Installation Tutorial
+## Installation Tutorial and Preliminaries
 ### Environment Requirements
 Please ensure that the following packages are installed:
 ```
