@@ -64,14 +64,18 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 Ensure that each dataset is downloaded and placed in its corresponding folder before running the experiments.
 
 ## 💪 Logistic regression
-This experimental code is located in the Logistic_regression. To run the main script, use the following command:
+You can use the following command to execute the logistic regression model:
 ```
 python Logistic_regression/main.py --test_num 0 --iterations 1000
 ```
-- `--test_num`: Specifies the optimization algorithm to be used:\
-`0`:Algorithm 1; `1`: Algorithm 3; `2`:Algorithm 4; `3`: DGM-BB-C; `4`: DGD.
+- `--test_num`: Specifies the optimization algorithm to be trained:\
+`0`:Algorithm 1;
+`1`: Algorithm 3;
+`2`:Algorithm 4;
+`3`: DGM-BB-C;
+`4`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-- To run Algorithm S1, please modify the `optimizers.py` file by setting `self.K=1` in the `Algorithm4` class:
+- To execute Algorithm S1, you can modify the [`optimizers.py`]() file by setting `self.K=1` in the `Algorithm4` class:
 ```
 class Algorithm4(Trainer):
     def __init__(self, *args, **kwargs):
