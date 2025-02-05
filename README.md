@@ -64,7 +64,7 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 Ensure that each dataset is downloaded and placed in its corresponding folder before running the experiments.
 
 ## 💪 Logistic regression
-You can use the following command to execute the logistic regression model:
+1. You can use the following command to execute the logistic regression model:
 ```
 python .\main.py --test_num 0 --iterations 1000
 ```
@@ -72,25 +72,40 @@ python .\main.py --test_num 0 --iterations 1000
 - `--test_num`: Specifies the optimization algorithm to be trained:\
 `0`:Algorithm 1;
 `1`: Algorithm 3;
-`2`:Algorithm 4;
+`2`: Algorithm 4;
 `3`: DGM-BB-C;
 `4`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-- To execute Algorithm S1, you can modify the [`optimizers.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/optimizers.py) file by setting `self.K=1` in the `Algorithm4` class:
+2. To execute Algorithm S1, you can modify the [`optimizers.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/optimizers.py) file by setting the number of inner-consensus-loop iterations `self.K=1` in the `Algorithm4` class:
 ```
 class Algorithm4(Trainer):
     def __init__(self, *args, **kwargs):
         super(Algorithm4, self).__init__(*args, **kwargs)
         self.name = "Algorithm4"
-        self.K = 1  # Change this from 1000 to 1 for Algorithm S1
+        self.K = 10  # Change this from default 10 to 1 for Algorithm S1
         self.agent_y = {}
 ```
-- The results (loss, wallclocktime, average stepsizes) will be saved as `.csv` files in the `./Logistic_regression/results` directory. 
+3. You can modify the number of asynchronous-parallel-update iterations for Algorithm 3 by adjusting the parameter `self.Q=` in the `Algorithm3` class in the [`optimizers.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/optimizers.py) file:
+```
+class Algorithm3(Trainer):
+    def __init__(self, *args, **kwargs):
+        super(Algorithm3, self).__init__(*args, **kwargs)
+        self.name = "Algorithm3"
+        self.Q = 5  # Change default 5 to the desired number of asynchronous-parallel-update iterations
+        self.agent_y = {}
+```
+4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Logistic_regression/results` directory. 
 ### Experimental results
-![Logistc](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
+![Fig3](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
 
+- Fig. A (and its zoomed-in view of iterations 40 to 160) shows the loss evoluation of Algorithm 1, Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD, respectively.
+- Fig. B shows comparision results of our Algorithm 1 (synchronous updates) with Algorithm 3 (asynchronous parallel updates) under different number of asynchronous-parallel-update iterations in terms of used communication rounds.
+- Fig. C shows comparision results of the average stepsize of 5 agents in the six algorithms.
+- Fig. D shows the median, 1st and 3rd quartiles, and minimum and maximum values of the average stepsize in the six algorithms.
+- Fig. E shows comparision results of average, minimum， and maximum differences in stepsizes between pairs of algorithms.
+- Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
 
-
+> Note: All data are saved in XXx. Here, $Q$ represents the number of asynchronous-parallel-update iterations of Algorithm 3 and $K$ represents the number of inner-consensus-loop ietrations of Algorithm 4 and DGM-BB-C.
 
 ## 💪 Matrix factorization
 The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
