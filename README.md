@@ -34,6 +34,7 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 
 ```
 ├── Logistic_regression                 # Directory to implement a logistic regression classification problem
+│   ├── results                         # .csv files for experimental results
 │   ├── loss_function.py                # Defines the loss function 
 │   ├── main.py                         # Entry point
 │   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
@@ -49,8 +50,8 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 │   ├── procgen-starter-example.yaml    
 │   └── random-policy.yaml              
 ├── LICENSE                             # License file
-├── README.md                           # List of dependencies required to run the project                   
-└── requirements.txt                                 
+├── README.md                                             
+└── requirements.txt                    # List of dependencies required to run the project             
 ```
 
 ### Datasets
@@ -105,7 +106,7 @@ class Algorithm3(Trainer):
 - Fig. E shows comparision results of average, minimum， and maximum differences in stepsizes between pairs of algorithms.
 - Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
 
-> Note: All data are saved in XXx. Here, $Q$ represents the number of asynchronous-parallel-update iterations of Algorithm 3 and $K$ represents the number of inner-consensus-loop ietrations of Algorithm 4 and DGM-BB-C.
+> Note: All data are saved in [`results`](https://github.com/cziqin/Automated_Stepsizes/tree/main/Logistic_regression/results). Here, $Q$ represents the number of asynchronous-parallel-update iterations of Algorithm 3 and $K$ represents the number of inner-consensus-loop ietrations of Algorithm 4 and DGM-BB-C.
 
 ## 💪 Matrix factorization
 The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
