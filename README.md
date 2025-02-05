@@ -16,7 +16,7 @@ The effectiveness of the proposed approach is confirmed using the following thre
 
 ### Install Setup
 1. Clone this [repository](https://github.com/cziqin/Automated_Stepsizes/tree/main)
-2. Download and install [Anaoconda](https://www.anaconda.com) (if you don't have it already)
+2. Download and install [Anaconda](https://www.anaconda.com) (if you don't have it already)
 3. Create a new conda environment with python 3.12
 ```bash
 conda create -n autostep python=3.12
@@ -75,7 +75,7 @@ python Logistic_regression/main.py --test_num 0 --iterations 1000
 `3`: DGM-BB-C;
 `4`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-- To execute Algorithm S1, you can modify the [`optimizers.py`]() file by setting `self.K=1` in the `Algorithm4` class:
+- To execute Algorithm S1, you can modify the [`optimizers.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/optimizers.py) file by setting `self.K=1` in the `Algorithm4` class:
 ```
 class Algorithm4(Trainer):
     def __init__(self, *args, **kwargs):
@@ -84,7 +84,7 @@ class Algorithm4(Trainer):
         self.K = 1  # Change this from 1000 to 1 for Algorithm S1
         self.agent_y = {}
 ```
-- The results will be saved as `.csv` files in the `./results/` directory. 
+- The results will be saved as `.csv` files in the `./Logistic_regression/results` directory. 
 ### Experimental results
 ![Introduction](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
 
