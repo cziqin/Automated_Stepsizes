@@ -42,9 +42,9 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 │   ├── optimizer.py                    # Optimization algorithms
 │   └── train.py                        # Training script for model training and evaluation
 ├── Matirx_factorization
-│   ├── __init__.py
-│   ├── framestack.py                   
-│   ├── procgen_env_wrapper.py          
+│   ├── main.py                         # Entry point
+│   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
+│   ├── optimizer.py                    # Optimization algorithms
 ├── Neural_networks                         
 │   ├── impala-baseline.yaml            
 │   ├── procgen-starter-example.yaml    
@@ -67,7 +67,7 @@ Ensure that each dataset is downloaded and placed in its corresponding folder be
 ## 💪 Logistic regression
 1. You can use the following command to execute the logistic regression model:
 ```
-python .\main.py --test_num 0 --iterations 1000
+python .\Logistic_regression\main.py --test_num 0 --iterations 1000
 ```
 ![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_execution.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
@@ -100,7 +100,7 @@ python .\main.py --test_num 0 --iterations 1000
 - Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
 
 ## 💪 Matrix factorization
-The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
+
 
 ### Experimental results
 <div align="center">
