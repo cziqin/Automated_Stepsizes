@@ -88,7 +88,7 @@ python .\main.py --test_num 0 --iterations 1000
 
 > Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
 ### Experimental results
-![Fig3](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
+![Fig3](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png)
 
 - Fig. A (and its zoomed-in view of iterations 40 to 160) shows the loss evoluation of Algorithm 1, Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD, respectively.
 - Fig. B compares the communication rounds used by our Algorithm 1 (synchronous updates) and Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
@@ -99,6 +99,16 @@ python .\main.py --test_num 0 --iterations 1000
 
 ## 💪 Matrix factorization
 The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
+
+### Experimental results
+![Fig4](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png)
+
+- Fig. A (and its zoomed-in view of iterations 40 to 160) shows the loss evoluation of Algorithm 1, Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD, respectively.
+- Fig. B compares the communication rounds used by our Algorithm 1 (synchronous updates) and Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
+- Fig. C presents a comparison of the average stepsize of five agents across the six algorithms.
+- Fig. D shows the median, first and third quartiles, and the minimum and maximum values of the average stepsize in the six algorithms.
+- Fig. E compares the average, minimum, and maximum differences in stepsizes between pairs of algorithms.
+- Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
 
 ## 💪 Neural network training
 ### Cifar 10
