@@ -70,9 +70,9 @@ Ensure that each dataset is downloaded and placed in its corresponding folder be
 python .\main.py --test_num 0 --iterations 1000
 ```
 ![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushroom.gif)
-- `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 3; `2`: Algorithm 4; `3`: DGM-BB-C; `4`: DGD.
+- `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-2. To execute Algorithm S1, you can modify the [`optimizers.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/optimizers.py) file by setting the number of inner-consensus-loop iterations `self.K=1` in the `Algorithm4` class:
+2. To execute Algorithm 3 with Q=10, you can modify the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/optimizers.py) file by setting the number of inner-consensus-loop iterations `self.K=1` in the `Algorithm4` class:
 ```
 class Algorithm4(Trainer):
     def __init__(self, *args, **kwargs):
