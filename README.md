@@ -88,7 +88,9 @@ python .\main.py --test_num 0 --iterations 1000
 
 > Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
 ### Experimental results
-![Fig3](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png)
+<div align="center">
+  <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png" alt="Fig3" width="900">
+</div>
 
 - Fig. A (and its zoomed-in view of iterations 40 to 160) shows the loss evoluation of Algorithm 1, Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD, respectively.
 - Fig. B compares the communication rounds used by our Algorithm 1 (synchronous updates) and Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
@@ -101,7 +103,9 @@ python .\main.py --test_num 0 --iterations 1000
 The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
 
 ### Experimental results
-![Fig4](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png)
+<div align="center">
+  <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/matrix_factorization.png" alt="Fig4" width="900">
+</div>
 
 - Fig. A (and its zoomed-in view of iterations 40 to 160) shows the loss evoluation of Algorithm 1, Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD, respectively.
 - Fig. B compares the communication rounds used by our Algorithm 1 (synchronous updates) and Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
