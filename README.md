@@ -72,27 +72,21 @@ python .\main.py --test_num 0 --iterations 1000
 ![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushroom.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-2. To execute Algorithm 3 with Q=10, you can modify the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/optimizers.py) file by setting the number of inner-consensus-loop iterations `self.K=1` in the `Algorithm4` class:
+2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K_0$ (e.g., $K_{0}=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file. Please run:
 ```
-class Algorithm4(Trainer):
-    def __init__(self, *args, **kwargs):
-        super(Algorithm4, self).__init__(*args, **kwargs)
-        self.name = "Algorithm4"
-        self.K = 10  # Change this from default 10 to 1 for Algorithm S1
-        self.agent_y = {}
+(Get-Content matrix.py) -replace 'K_LOOP = 1', 'K_LOOP = 10' | Set-Content matrix.py
+python .\main.py --test_num 0 --iterations 1000
 ```
-3. You can modify the number of asynchronous-parallel-update iterations for Algorithm 3 by adjusting the parameter `self.Q=` in the `Algorithm3` class in the [`optimizers.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/optimizers.py) file:
+  
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q_0$ (e.g., $Q_{0}=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file, and then execute Algorithm 1. Please run:
 ```
-class Algorithm3(Trainer):
-    def __init__(self, *args, **kwargs):
-        super(Algorithm3, self).__init__(*args, **kwargs)
-        self.name = "Algorithm3"
-        self.Q = 5  # Change default 5 to the desired number of asynchronous-parallel-update iterations
-        self.agent_y = {}
+(Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 30' | Set-Content matrix.py
+python .\main.py --test_num 0 --iterations 1000
 ```
+
 4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Logistic_regression/results` directory.
 
-> Note: Parameter `self.Q` represents the number of asynchronous-parallel-update iterations of Algorithm 3 and parameter `self.K` represents the number of inner-consensus-loop ietrations of Algorithm 4 and DGM-BB-C.
+> Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
 ### Experimental results
 ![Fig3](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_png.png)
 
@@ -102,9 +96,6 @@ class Algorithm3(Trainer):
 - Fig. D shows the median, first and third quartiles, and the minimum and maximum values of the average stepsize in the six algorithms.
 - Fig. E compares the average, minimum, and maximum differences in stepsizes between pairs of algorithms.
 - Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
-
-> Note: All experimental results (data) are available in [`results`](https://github.com/cziqin/Automated_Stepsizes/tree/main/Logistic_regression/results).
-
 
 ## 💪 Matrix factorization
 The "MovieLens 100k" dataset used for this experiment is already included in the matrix_factorization folder. To run this experiment, please execute the ``mf.py`` file.
