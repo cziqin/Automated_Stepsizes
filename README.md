@@ -95,12 +95,12 @@ python .\main.py --test_num 0 --iterations 1000
   <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png" alt="Fig3" width="900">
 </div>
 
-- Fig. A (and its zoomed-in view of iterations 40 to 160) shows the loss evoluation of Algorithm 1, Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD, respectively.
-- Fig. B compares the communication rounds used by our Algorithm 1 (synchronous updates) and Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
-- Fig. C presents a comparison of the average stepsize of five agents across the six algorithms.
-- Fig. D shows the median, first and third quartiles, and the minimum and maximum values of the average stepsize in the six algorithms.
-- Fig. E compares the average, minimum, and maximum differences in stepsizes between pairs of algorithms.
-- Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
+- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
+- Fig. b shows the average stepsize of five agents across the comparison algorithms over iterations.
+- Fig. c shows the median, first and third quartiles, and the 5th to 95th percentiles of the average stepsize in the six algorithms.
+- Fig. d shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of wallclock time, respectively.
+- Fig. e shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of communication rounds, respectively.
+- Fig. f shows the comparision results of Algorithm 1 (synchronous parallel updates) with Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
 
 ## 💪 Matrix factorization
 1. You can use the following command to execute the logistic regression model:
