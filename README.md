@@ -69,7 +69,7 @@ Ensure that each dataset is downloaded and placed in its corresponding folder be
 ```
 python .\main.py --test_num 0 --iterations 1000
 ```
-![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushroom.gif)
+![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_execution.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
 - `--iterations`: sets the number of trianing iterations.
 2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K_0$ (e.g., $K_{0}=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file. Please run:
