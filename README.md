@@ -156,10 +156,10 @@ python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 > Note: All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Matrix_factorization/results` directory.
 
 ## 💪 Neural network training
-
+### Cifar 10
 ### Experimental results
 <div align="center">
-  <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/matrix_factorization.png" alt="Fig4" width="900">
+  <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/cifar10.png" alt="Fig5" width="900">
 </div>
 
 - Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
@@ -170,7 +170,7 @@ python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 - Fig. f shows the comparision results of Algorithm 1 (synchronous parallel updates) with Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
 
 > Note: All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Matrix_factorization/results` directory.
-### Cifar 10
+
 
 
 ### ImageNet
