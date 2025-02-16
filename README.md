@@ -156,6 +156,20 @@ python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 > Note: All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Matrix_factorization/results` directory.
 
 ## 💪 Neural network training
+
+### Experimental results
+<div align="center">
+  <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/matrix_factorization.png" alt="Fig4" width="900">
+</div>
+
+- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
+- Fig. b shows the average stepsize of five agents across the comparison algorithms over iterations.
+- Fig. c shows the median, first and third quartiles, and the 5th to 95th percentiles of the average stepsize in the six algorithms.
+- Fig. d shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of wallclock time, respectively.
+- Fig. e shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of communication rounds, respectively.
+- Fig. f shows the comparision results of Algorithm 1 (synchronous parallel updates) with Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
+
+> Note: All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Matrix_factorization/results` directory.
 ### Cifar 10
 
 
