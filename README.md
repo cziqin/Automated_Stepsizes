@@ -66,30 +66,30 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 Ensure that each dataset is downloaded and placed in its corresponding folder before running the experiments.
 
 ## 💪 Logistic regression
-1. You can use the following command to execute Algorithm 1 in the logistic regression task:
+1. You can use the following command to execute Algorithm 1 for the logistic regression task:
 ```
 python .\Logistic_regression\main.py --test_num 0 --iterations 1000
 ```
+> Note: Here, `.\Logistic_regression\main.py` is a relative path, meaning the script should be executed from the directory containing the `Logistic_regression` folder.
+
 ![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_execution.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K$ (e.g., $K=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file. For example, you can run
+2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K$ (e.g., $K=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file. For example, you can run the following command in the Windows PowerShell:
 ```
 (Get-Content matrix.py) -replace 'K_LOOP = 1', 'K_LOOP = 10' | Set-Content matrix.py
 python .\main.py --test_num 0 --iterations 1000
 ```
   
-3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file, and then execute Algorithm 1. Please run:
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file, and then execute Algorithm 1. For example, you can run the following command in the Windows PowerShell:
 ```
 (Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 30' | Set-Content matrix.py
 python .\main.py --test_num 0 --iterations 1000
 ```
-
-4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Logistic_regression/results` directory.
-
-5. We set the stepsize $\eta=1/L_{\max}=0.0351132$ for DGD, which follows the guideline in [42]. The stepsizes of Algorithm 1, Algorithm 2, and DGM-BB-C are automatively adjusted without requiring any mannual tuning.  
-
 > Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
+
+4. In this experiment, we set the stepsize $\eta=1/L_{\max}=0.0351132$ for DGD, which follows the guideline in [42]. The stepsizes of Algorithm 1, Algorithm 2, and DGM-BB-C are automatively adjusted without requiring any mannual tuning.  
+
 ### Experimental results
 <div align="center">
   <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png" alt="Fig3" width="900">
@@ -102,45 +102,62 @@ python .\main.py --test_num 0 --iterations 1000
 - Fig. e shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of communication rounds, respectively.
 - Fig. f shows the comparision results of Algorithm 1 (synchronous parallel updates) with Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
 
+> Note: All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Logistic_regression/results` directory.
 ## 💪 Matrix factorization
-1. You can use the following command to execute the logistic regression model:
+1. You can use the following command to execute Algorithm 1 for the matrix factorization task:
 ```
 python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 ```
 ![Matrix](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/Matrix_factorization_execution.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K_0$ (e.g., $K_{0}=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Matrix_factorization/matrix.py) file. Please run:
+
+2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K$ (e.g., $K=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Matrix_factorization/matrix.py) file. For example, you can run the following command in the Windows PowerShell:
 ```
 (Get-Content matrix.py) -replace 'K_LOOP = 1', 'K_LOOP = 10' | Set-Content matrix.py
 python .\Matrix_factorization\main.py --test_num 1 --iterations 1000
 ```
   
-3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q_0$ (e.g., $Q_{0}=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Matrix_factorization/matrix.py) file, and then execute Algorithm 1. Please run:
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Matrix_factorization/matrix.py) file, and then execute Algorithm 1. For example, you can run the following command in the Windows PowerShell:
 ```
 (Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 30' | Set-Content matrix.py
 python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 ```
 
-4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Matrix_factorization/results` directory.
-
-> Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
+4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it is the best suboptimal step size we found based on the following tuning results:
+   
+<table>
+  <tr> <th rowspan="2">Algorithms</th> <th colspan="9">Stepsizes</th>
+  </tr>
+  <tr> <th>$10^{-8}$</th>   <th>$10^{-7}$</th>   <th>$10^{-6}$</th> <th>$10^{-5}$</th>   <th>$10^{-4}$</th>   <th>$10^{-3}$</th>
+    <th>$10^{-2}$</th>   <th>$10^{-1}$</th>   <th>$10^{0}$</th>
+  </tr>
+  <tr>
+    <td>DGD</td> <td>5.673 &pm; 0.01</td>  <td>5.667 &pm; 0.01</td>  <td>5.614 &pm; 0.01</td>  <td>5.330 &pm; 0.01</td>
+    <td>5.135 &pm; 0.01</td>  <td>nan</td>  <td>nan</td>  <td>nan</td>  <td>nan</td>
+  </tr>
+  <tr>
+    <td>Algorithm 1 </td>  <td colspan="9">5.095 &pm; 0.01</td>
+  </tr>
+</table>
 
 ### Experimental results
 <div align="center">
   <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/matrix_factorization.png" alt="Fig4" width="900">
 </div>
 
-- Fig. A (and its zoomed-in view of iterations 40 to 160) shows the loss evoluation of Algorithm 1, Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD, respectively.
-- Fig. B compares the communication rounds used by our Algorithm 1 (synchronous updates) and Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
-- Fig. C presents a comparison of the average stepsize of five agents across the six algorithms.
-- Fig. D shows the median, first and third quartiles, and the minimum and maximum values of the average stepsize in the six algorithms.
-- Fig. E compares the average, minimum, and maximum differences in stepsizes between pairs of algorithms.
-- Fig. F shows comparision results of Algorithm 1 with Algorithm S1, Algorithm 3 with Q=5, Algorithm 4 with K=10, DGM-BB-C with K=10, and DGD in terms of wallclock time, respectively.
+- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
+- Fig. b shows the average stepsize of five agents across the comparison algorithms over iterations.
+- Fig. c shows the median, first and third quartiles, and the 5th to 95th percentiles of the average stepsize in the six algorithms.
+- Fig. d shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of wallclock time, respectively.
+- Fig. e shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of communication rounds, respectively.
+- Fig. f shows the comparision results of Algorithm 1 (synchronous parallel updates) with Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
+
+> Note: All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Matrix_factorization/results` directory.
 
 ## 💪 Neural network training
 ### Cifar 10
-The CIFAR-10 experiments used a four-layer CNN, which is provided in the file 'models.py' in the 'Neural_Network' folder.
+
 
 ### ImageNet
 The ImageNet experiments used a ResNet-18 architecture, which is provided in the file 'resnet.py' within the 'Neural_Network' folder.
