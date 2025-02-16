@@ -108,19 +108,19 @@ python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 ![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_execution.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K_0$ (e.g., $K_{0}=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file. Please run:
+2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K_0$ (e.g., $K_{0}=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Matrix_factorization/matrix.py) file. Please run:
 ```
 (Get-Content matrix.py) -replace 'K_LOOP = 1', 'K_LOOP = 10' | Set-Content matrix.py
-python .\main.py --test_num 0 --iterations 1000
+python .\Matrix_factorization\main.py --test_num 1 --iterations 1000
 ```
   
-3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q_0$ (e.g., $Q_{0}=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file, and then execute Algorithm 1. Please run:
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q_0$ (e.g., $Q_{0}=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Matrix_factorization/matrix.py) file, and then execute Algorithm 1. Please run:
 ```
 (Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 30' | Set-Content matrix.py
-python .\main.py --test_num 0 --iterations 1000
+python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 ```
 
-4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Logistic_regression/results` directory.
+4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Matrix_factorization/results` directory.
 
 > Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
 
