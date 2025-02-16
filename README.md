@@ -66,26 +66,28 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 Ensure that each dataset is downloaded and placed in its corresponding folder before running the experiments.
 
 ## 💪 Logistic regression
-1. You can use the following command to execute the logistic regression model:
+1. You can use the following command to execute Algorithm 1 in the logistic regression task:
 ```
 python .\Logistic_regression\main.py --test_num 0 --iterations 1000
 ```
 ![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_execution.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
 - `--iterations`: sets the number of trianing iterations.
-2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K_0$ (e.g., $K_{0}=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file. Please run:
+2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K$ (e.g., $K=10$), you can reset the parameter  `K_LOOP` (e.g., `K_LOOP=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file. For example, you can run
 ```
 (Get-Content matrix.py) -replace 'K_LOOP = 1', 'K_LOOP = 10' | Set-Content matrix.py
 python .\main.py --test_num 0 --iterations 1000
 ```
   
-3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q_0$ (e.g., $Q_{0}=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file, and then execute Algorithm 1. Please run:
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Logistic_regression/matrix.py) file, and then execute Algorithm 1. Please run:
 ```
 (Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 30' | Set-Content matrix.py
 python .\main.py --test_num 0 --iterations 1000
 ```
 
 4. All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Logistic_regression/results` directory.
+
+5. We set the stepsize $\eta=1/L_{\max}=0.0351132$ for DGD, which follows the guideline in [42]. The stepsizes of Algorithm 1, Algorithm 2, and DGM-BB-C are automatively adjusted without requiring any mannual tuning.  
 
 > Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
 ### Experimental results
