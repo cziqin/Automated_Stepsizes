@@ -33,37 +33,37 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 ### Repository Structure
 
 ```
-├── Logistic_regression                 # Directory to implement a logistic regression classification problem
+├── Logistic_regression                 # directory to implement a logistic regression classification problem
 │   ├── results                         # .csv files for experimental results
-│   ├── loss_function.py                # Defines the loss function 
-│   ├── main.py                         # Entry point
+│   ├── loss_function.py                # defines the loss function 
+│   ├── main.py                         # entry point
 │   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
 │   ├── mushrooms                       # the mushrooms datasets
-│   ├── optimizer.py                    # Optimization algorithms
-│   └── train.py                        # Training script for model training and evaluation
+│   ├── optimizer.py                    # optimization algorithms
+│   └── train.py                        # training script for model training and evaluation
 ├── Matirx_factorization
-│   ├── main.py                         # Entry point
+│   ├── main.py                         # entry point
 │   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
-│   ├── optimizer.py                    # Optimization algorithms
+│   ├── optimizer.py                    # optimization algorithms
 │   └── u.data                          # the MovieLens 100k dataset
 ├── Neural_networks                         
-│   ├── datadeal.py                     # Splits the downloaded ImageNet dataset into training and test sets          
-│   ├── main.py                         # Entry point
+│   ├── datadeal.py                     # splits the downloaded ImageNet dataset into training and test sets          
+│   ├── main.py                         # entry point
 │   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
 │   ├── models.py                       # the model used in CNN training on the Cifar-10 dataset
-│   ├── ops.py                          # Optimization algorithms
+│   ├── ops.py                          # optimization algorithms
 │   ├── resnet.py                       # the model used in CNN training on the ImageNet dataset   
-│   └── train.py                        # Training script for model training and evaluation
+│   └── train.py                        # training script for model training and evaluation
 ├── LICENSE                             # License file
 ├── README.md                                             
-└── requirements.txt                    # List of dependencies required to run the project             
+└── requirements.txt                    # list of dependencies required to run the project             
 ```
 
 ### Datasets
 | Datasets | Download link | Storage Location|
 | ------ | ------ | ------|
 | Mushrooms | https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/ |`./Logistic_regression/`|
-| MovieLens 100k | https://grouplens.org/datasets/movielens/|`./matrix_factorization/data/`|
+| MovieLens 100k | https://grouplens.org/datasets/movielens/|`./matrix_factorization/`|
 | CIFAR-10 | https://www.cs.toronto.edu/~kriz/cifar.html |`./Neural_networks/data/`|
 | ImageNet | https://academictorrents.com/collection/imagenet-2012 |`./Neural_networks/data/`|
 
