@@ -92,7 +92,7 @@ python .\main.py --test_num 0 --iterations 1000
 ```
 > Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
 
-4. In this experiment, we set the stepsize $\eta=1/L_{\max}=0.0351132$ for DGD, which follows the guideline in [42]. The stepsizes of Algorithm 1, Algorithm 2, and DGM-BB-C are automatively adjusted without requiring any mannual tuning.
+4. In this experiment, only the stepsize of DGD needs to be tuned, while Algorithm 1, Algorithm 2, and DGM-BB-C are tuning-free. Following the guideline in [42], we set the stepsize for DGD as $\eta=1/L_{\max}\approx 0.351131704$.
 
 5. Our tuning-free stepsize update code in the `optimizer.py` file is given as follows:
 <div align="center">
