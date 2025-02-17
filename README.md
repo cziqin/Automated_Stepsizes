@@ -168,12 +168,12 @@ python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 
 ## 💪 Neural network training
 ### Cifar 10
-1. You can use the following command to execute Algorithm 1 for the matrix factorization task:
+1. You can use the following command to execute Algorithm 1 for the conventional neural network training task on the CIFAR-10 dataset:
 ```
 python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10'
 ```
 
->Note: Before running the script, please ensure that the CIFAR-10 dataset has been downloaded and placed in the `./Neural_networks/data` directory.
+>Note: Before running the script, please ensure that the [`CIFAR-10`](https://www.cs.toronto.edu/~kriz/cifar.html) dataset has been downloaded and placed in the `./Neural_networks/data` directory.
 
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 3; `1`: DADAM; `2`: DAMSGrad; `3`: DSGD-N; `4`: ATC-DIGing; `5`: DSGD.
 - `--epochs`: sets the number of trianing epochs.
@@ -260,9 +260,24 @@ python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dat
 > Note: All experimental results (including training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
 ### ImageNet
-The ImageNet experiments used a ResNet-18 architecture, which is provided in the file 'resnet.py' within the 'Neural_Network' directory.
+1. You can use the following command to execute Algorithm 1 for the conventional neural network (CNN) training task on the ImageNet dataset:
+```
+python .\Neural_networks\main.py --test_num 0 --epochs 20 --batch_size 128 --dataset 'imagenet'
+```
 
-> Note:
+>Note: Before running the script, you need to first ensure that the [`ImageNet`](https://academictorrents.com/collection/imagenet-2012) dataset has been downloaded. Next, you should run datadeal.py to split the dataset into training and test sets. Finally, make sure they are placed in the ./Neural_networks/data/imagenet/train and ./Neural_networks/data/imagenet/sort_val directories, respectively. 
+
+2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you need to first set the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Neural_networks/matrix.py) file, and then execute Algorithm 3. For example, you can run the following command in the Windows PowerShell:
+```
+(Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 10' | Set-Content matrix.py
+python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'imagenet'
+```
+
+3. To specify the print interval (e.g., printing the training loss, test accuracy, and average stepsize every 10 iterations), you need to first update the parameter `SPECIFIC_LOG_INTERVAL` (e.g., `SPECIFIC_LOG_INTERVAL=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Neural_networks/matrix.py) file, and then execute Algorithm 3. 
+
+4. To specify the random seed used in training (e.g., setting seed=42), you can first update the parameter `SEED` (e.g., `SEED = 42`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Neural_networks/matrix.py) file, and then execute Algorithm 3. The default seed is 42.
+
+5. In this experiment, we set the same step size for DADAM, DAMSGrad, and DSGD-N as those used in the CIFAR-10 experiment, because tuning stepsizes for them in CNN training on the large-scale ImageNet dataset (which consists of over 1.28 million images) would cost a substantial amount of time. 
 
 ## 🚀 Discussions
 
