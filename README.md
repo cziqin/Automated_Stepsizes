@@ -173,11 +173,20 @@ python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dat
 - `batch_size`: sets the batch size for training.
 - `dataset`: Specifies the dataset to be used for training. The default option is 'cifar10'.
 
-2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Matrix_factorization/matrix.py) file, and then execute Algorithm 1. For example, you can run the following command in the Windows PowerShell:
+2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you need to first set the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Neural_networks/matrix.py) file, and then execute Algorithm 3. For example, you can run the following command in the Windows PowerShell:
 ```
-(Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 30' | Set-Content matrix.py
-python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
+(Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 10' | Set-Content matrix.py
+python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10'
 ```
+
+3. To specify the print interval (e.g., printing the training loss, test accuracy, and average stepsize every 10 iterations), you need to first update the parameter `SPECIFIC_LOG_INTERVAL` (e.g., `SPECIFIC_LOG_INTERVAL=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Neural_networks/matrix.py) file, and then execute Algorithm 3. For example, you can run the following command in Windows PowerShell:
+```
+(Get-Content matrix.py) -replace 'SPECIFIC_LOG_INTERVAL = 70', 'SPECIFIC_LOG_INTERVAL = 10' | Set-Content matrix.py
+python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10'
+```
+
+4. To specify the random seed used in training (e.g., setting seed=42), you can first update the parameter `SEED` (e.g., `SEED = 42`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Neural_networks/matrix.py) file, and then execute Algorithm 3. The default seed is 42.
+
 
 ### Experimental results
 <div align="center">
