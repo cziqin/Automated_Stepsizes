@@ -47,7 +47,7 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 │   ├── optimizer.py                    # Optimization algorithms
 │   ├── u.data                          # datasets
 ├── Neural_networks                         
-│   ├── impala-baseline.yaml            
+│   ├──             
 │   ├── procgen-starter-example.yaml    
 │   └── random-policy.yaml              
 ├── LICENSE                             # License file
@@ -124,7 +124,7 @@ python .\Matrix_factorization\main.py --test_num 1 --iterations 1000
 python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 ```
 
-4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it is the best suboptimal step size we found based on the following tuning results:
+4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it is the best suboptimal step size we found based on the following tuning results after 200 iterations:
    
 <table>
   <tr> <th rowspan="2">Algorithms</th> <th colspan="9">Stepsizes</th>
