@@ -96,7 +96,7 @@ python .\main.py --test_num 0 --iterations 1000
 
 5. Our tuning-free stepsize update code in the `optimizer.py` file is given as follows:
 <div align="center">
-  <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png" alt="Fig3" width="900">
+  <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mush_step.png" alt="Figstep" width="900">
 </div>
 
 ### Experimental results
