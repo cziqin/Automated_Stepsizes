@@ -65,7 +65,7 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 | Mushrooms | https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/ |`./Logistic_regression/`|
 | MovieLens 100k | https://grouplens.org/datasets/movielens/|`./matrix_factorization/`|
 | CIFAR-10 | https://www.cs.toronto.edu/~kriz/cifar.html |`./Neural_networks/data/`|
-| ImageNet | https://academictorrents.com/collection/imagenet-2012 |`./Neural_networks/data/`|
+| ImageNet | https://academictorrents.com/collection/imagenet-2012 |`./Neural_networks/data/imagenet/`|
 
 Ensure that each dataset is downloaded and placed in its corresponding directory before running the experiments.
 
