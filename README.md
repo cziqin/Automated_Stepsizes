@@ -67,14 +67,14 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 | CIFAR-10 | https://www.cs.toronto.edu/~kriz/cifar.html |`./Neural_networks/data/`|
 | ImageNet | https://academictorrents.com/collection/imagenet-2012 |`./Neural_networks/data/`|
 
-Ensure that each dataset is downloaded and placed in its corresponding folder before running the experiments.
+Ensure that each dataset is downloaded and placed in its corresponding directory before running the experiments.
 
 ## 💪 Logistic regression
 1. You can use the following command to execute Algorithm 1 for the logistic regression task:
 ```
 python .\Logistic_regression\main.py --test_num 0 --iterations 1000
 ```
-> Note: Here, `.\Logistic_regression\main.py` is a relative path, meaning the script should be executed from the directory containing the `Logistic_regression` folder.
+> Note: Here, `.\Logistic_regression\main.py` is a relative path, meaning the script should be executed from the directory containing the `Logistic_regression` directory.
 
 ![Mushroom](https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms_execution.gif)
 - `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
@@ -161,6 +161,24 @@ python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 
 ## 💪 Neural network training
 ### Cifar 10
+1. You can use the following command to execute Algorithm 1 for the matrix factorization task:
+```
+python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10'
+```
+
+>Note: Before running the script, please ensure that the CIFAR-10 dataset has been downloaded and placed in the `./Neural_networks/data` directory.
+
+- `--test_num`: Specifies the optimization algorithm to be trained: `0`:Algorithm 3; `1`: DADAM; `2`: DAMSGrad; `3`: DSGD-N; `4`: ATC-DIGing; `5`: DSGD.
+- `--epochs`: sets the number of trianing epochs.
+- `batch_size`: sets the batch size for training.
+- `dataset`: Specifies the dataset to be used for training. The default option is 'cifar10'.
+
+2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can first reset the parameter  `CONST_Q` (e.g., `CONST_Q=10`) in the [`matrix.py`](https://github.com/cziqin/Automated_Stepsizes/blob/main/Matrix_factorization/matrix.py) file, and then execute Algorithm 1. For example, you can run the following command in the Windows PowerShell:
+```
+(Get-Content matrix.py) -replace 'CONST_Q = 1', 'CONST_Q = 30' | Set-Content matrix.py
+python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
+```
+
 ### Experimental results
 <div align="center">
   <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/cifar10.png" alt="Fig5" width="900">
@@ -178,7 +196,7 @@ python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 
 
 ### ImageNet
-The ImageNet experiments used a ResNet-18 architecture, which is provided in the file 'resnet.py' within the 'Neural_Network' folder.
+The ImageNet experiments used a ResNet-18 architecture, which is provided in the file 'resnet.py' within the 'Neural_Network' directory.
 
 > Note:
 
