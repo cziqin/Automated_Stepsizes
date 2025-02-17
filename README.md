@@ -142,13 +142,15 @@ python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
     <th>$10^{-2}$</th>   <th>$10^{-1}$</th>   <th>$10^{0}$</th>
   </tr>
   <tr>
-    <td>DGD</td> <td>5.673 &pm; 0.01</td>  <td>5.667 &pm; 0.01</td>  <td>5.614 &pm; 0.01</td>  <td>5.330 &pm; 0.01</td>
-    <td><b>5.135 &pm; 0.01<b></td>  <td>nan</td>  <td>nan</td>  <td>nan</td>  <td>nan</td>
+    <td>DGD</td> <td>5.673 </td>  <td>5.667</td>  <td>5.614</td>  <td>5.330</td>
+    <td><b>5.135<b></td>  <td>nan</td>  <td>nan</td>  <td>nan</td>  <td>nan</td>
   </tr>
   <tr>
-    <td>Algorithm 1 </td>  <td colspan="9"><b>5.095 &pm; 0.01<b></td>
+    <td>Algorithm 1 </td>  <td colspan="9"><b>5.095<b></td>
   </tr>
 </table>
+
+>Note: Since the standard deviations of all algorithms are smaller than 0.001, they are omitted in this table.
 
 ### Experimental results
 <div align="center">
@@ -248,16 +250,14 @@ python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dat
   <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/cifar10.png" alt="Fig5" width="900">
 </div>
 
-- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
-- Fig. b shows the average stepsize of five agents across the comparison algorithms over iterations.
-- Fig. c shows the median, first and third quartiles, and the 5th to 95th percentiles of the average stepsize in the six algorithms.
-- Fig. d shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of wallclock time, respectively.
-- Fig. e shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of communication rounds, respectively.
-- Fig. f shows the comparision results of Algorithm 1 (synchronous parallel updates) with Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
+- Fig. a shows the evolution of the training loss of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over epochs. The shaded area represents the 95% confidence interval.
+- Fig. b shows the evolution of the test accuracy of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over epochs.
+- Fig. c shows the measured trace of the average stepsize (of five agents) for the comparision algorithms, with the error bars representing the standard derivation and the solid line representing the nonlinear fitted curve.
+- Fig. d shows the comparision of the average stepsize (of five agents) in the five algorithms. Box plots show the median, 1st and 3rd quartiles, and the 5th to 95th percentiles.
+- Fig. e shows the comparision results of Algorithm 3 with Q=1 (synchronous parallel updates) with Algorithm 3 under different numbers of asynchronous-parallel-update iterations in terms of communication rounds.
+- Fig. f shows the comparision results of Algorithm 3 with ATC-DIGing (with $\eta=0.02$) and DSGD (with $\eta=\frac{0.02}{t+1}$) in terms of communication rounds.
 
-> Note: All experimental results (including loss, wallclock time, average stepsizes) will be automously saved as `.csv` files in the `./Matrix_factorization/results` directory.
-
-
+> Note: All experimental results (including training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
 ### ImageNet
 The ImageNet experiments used a ResNet-18 architecture, which is provided in the file 'resnet.py' within the 'Neural_Network' directory.
