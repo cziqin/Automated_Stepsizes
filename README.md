@@ -38,18 +38,22 @@ The experiments were conducted using a system with 32 CPU cores, 31GB of memory,
 │   ├── loss_function.py                # Defines the loss function 
 │   ├── main.py                         # Entry point
 │   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
-│   ├── mushrooms                       # datasets
+│   ├── mushrooms                       # the mushrooms datasets
 │   ├── optimizer.py                    # Optimization algorithms
 │   └── train.py                        # Training script for model training and evaluation
 ├── Matirx_factorization
 │   ├── main.py                         # Entry point
 │   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
 │   ├── optimizer.py                    # Optimization algorithms
-│   ├── u.data                          # datasets
+│   └── u.data                          # the MovieLens 100k dataset
 ├── Neural_networks                         
-│   ├──             
-│   ├── procgen-starter-example.yaml    
-│   └── random-policy.yaml              
+│   ├── datadeal.py                     # Splits the downloaded ImageNet dataset into training and test sets          
+│   ├── main.py                         # Entry point
+│   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
+│   ├── models.py                       # the model used in CNN training on the Cifar-10 dataset
+│   ├── ops.py                          # Optimization algorithms
+│   ├── resnet.py                       # the model used in CNN training on the ImageNet dataset   
+│   └── train.py                        # Training script for model training and evaluation
 ├── LICENSE                             # License file
 ├── README.md                                             
 └── requirements.txt                    # List of dependencies required to run the project             
