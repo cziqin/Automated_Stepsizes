@@ -92,19 +92,25 @@ python .\main.py --test_num 0 --iterations 1000
 ```
 > Note: Parameter `K_LOOP` represents the number of inner-consensus-loop ietrations in Algorithm 2 and DGM-BB-C; Parameter `CONST_Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
 
-4. In this experiment, only the stepsize of DGD needs to be tuned, while Algorithm 1, Algorithm 2, and DGM-BB-C are tuning-free. Following the guideline in [42], we set the stepsize for DGD as $\eta=1/L_{\max}\approx 0.351131704$.
+4. In this experiment, Following the guideline in [42], we set the stepsize for DGD as $\eta=1/L_{\max}\approx 0.351131704$.
 
-5. Our tuning-free stepsize update code in the `optimizer.py` file is given as follows:
+5. Our tuning-free stepsize code in the `optimizer.py` file is given as follows:
 <div align="center">
   <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mush_step.png" alt="Figstep" width="900">
 </div>
 
 ### Experimental results
+We compared our Algorithm 1, Algorithm 2, and Algorithm 3 with a baseline algorithm, i.e., DGD in [48] using a constant stepsize and the decentralized adaptive algorithm using Barzilai-Borwein stepsize in [42] (called DGM-BB-C).
+
+- Algorithm 1 is an automated stepsize approach for decentralized optimization and learning with using a finite-time consensus strategy.
+- Algorithm 2 is a variant of Algorithm 1, which uses a standard consensus protocol [63] instead of a finite-time consensus strategy in the inner-consensus-loop iterations, thereby introducing consensus errors at each outer iteration. The number of inner-consensus-loops in Algorithm 2 is denoted as K. Specifically, when K=1, it corresponds to Algorithm 1 without the inner-consensus loop, which has reduced communication complexity.
+- Algorithm 3 is another variant of Algorithm 1, which uses asynchronous parallel updates instead of synchronous parallel updates. The number of asynchronous-parallel-update iterations is denoted as Q. Specifically, when Q=1, it corresponds to Algorithm 1.
+  
 <div align="center">
   <img src="https://github.com/cziqin/Automated_Stepsizes/blob/main/figures/mushrooms.png" alt="Fig3" width="900">
 </div>
 
-- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
+- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over 150 iterations, respectively. 
 - Fig. b shows the average stepsize of five agents across the comparison algorithms over iterations.
 - Fig. c shows the median, first and third quartiles, and the 5th to 95th percentiles of the average stepsize in the six algorithms.
 - Fig. d shows the comparision results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of wallclock time, respectively.
@@ -133,7 +139,7 @@ python .\Matrix_factorization\main.py --test_num 1 --iterations 1000
 python .\Matrix_factorization\main.py --test_num 0 --iterations 1000
 ```
 
-4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it was the suboptimal stepsize that we found based on the following tuning results after 200 iterations:
+4. In this experiment, only the stepsize of DGD needs to be tuned, while Algorithm 1, Algorithm 2, and DGM-BB-C are tuning free. We set the stepsize $\eta=10^{-4}$ for the DGD, since it was the suboptimal stepsize that we found based on the following tuning results after 200 iterations:
    
 <table>
   <tr> <th rowspan="2">Algorithms</th> <th colspan="9">Stepsizes</th>
