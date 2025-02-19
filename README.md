@@ -285,8 +285,8 @@ python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dat
 
 5. In this experiment, we set the same step size for DADAM, DAMSGrad, and DSGD-N as those used in the CIFAR-10 experiment, because tuning stepsizes for them in CNN training on the large-scale ImageNet dataset (which consists of over 1.28 million images) would cost a substantial amount of time. 
 
-## 🚀 Discussions
-In this repository, we have provided the codes to implement our automated stepsize approach in a fully distributed manner using three machine learning tasks on benchmark datasets. To the best of our knowledge, it is the first to completely avoid manual stepsize adjustment in decentralized machine learning tasks without the assistant of any centralized aggregators or information of the global objective function. Compared with existing counterpart adaptive/nonadpative algorithms, our approach achives a faster convergence speed and a higher convergence/learning accuracy. 
+## 🚀 Conclusions
+In this repository, we have provided the codes to implement our automated stepsize approach in a fully distributed manner using three machine learning tasks on benchmark datasets. To the best of our knowledge, it is the first to completely avoid manual stepsize adjustment in decentralized machine learning tasks without the assistant of any centralized aggregators or information of the global objective function. Compared with existing counterpart adaptive/nonadpative algorithms, our approach achives a faster convergence speed and a higher convergence/learning accuracy. Moreover, to decrease the communication complexity, we have provided an asynchronous-parallel-update code of our approach, which is indeed achieves the lowest communication rounds and wallclock time compared with existing couterpart algorithms. 
 
 ## License
 Distributed under the MIT License. See [`LICENSE`](https://github.com/cziqin/Automated_Stepsizes/blob/main/LICENSE) for more information.
