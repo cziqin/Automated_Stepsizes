@@ -9,7 +9,7 @@ The effectiveness of the proposed approach is confirmed using the following thre
 - Logistic Regression
 - Matrix Factorization
 - Training of Convolutional Neural Networks
-- Discussions
+- Conclusions
 - License
 
 ## 🔧 Installation Tutorial and Preliminaries
