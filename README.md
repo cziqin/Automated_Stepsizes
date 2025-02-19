@@ -288,7 +288,7 @@ python .\Neural_networks\main.py --test_num 0 --epochs 70 --batch_size 128 --dat
 ## 🚀 Discussions
 
 ## License
-
+Distributed under the MIT License. See [`LICENSE`]() for more information.
 ## Authors
 - [Ziqin Chen](https://scholar.google.com/citations?user=i-IM2rIAAAAJ&hl=zh-CN)
 - [Yongqiang Wang](https://scholar.google.com/citations?hl=zh-CN&user=shSZpGUAAAAJ)
