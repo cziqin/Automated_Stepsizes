@@ -69,7 +69,7 @@ The experiments were conducted using the Windows 11 OS equipped with a 32-core C
 Ensure that each dataset is downloaded and placed in its corresponding directory before running the experiments.
 >Note: For the "ImageNet" dataset, you should first ensure that the [dataset](https://image-net.org) has been downloaded. Then, you need to run [datadeal](./Neural_networks/datadeal.py) to split the dataset into the training set and the test set, respectively. This step ensures that no data leakage occurs. Finally, make sure the training and test sets are placed in the `./Neural_networks/data/imagenet/train` and `./Neural_networks/data/imagenet/sort_val` directories, respectively. 
 
-## 💪 Logistic regression
+## Logistic regression
 1. You can use the following command to execute Algorithm 1 for the logistic regression task:
     ```shell
     python main.py --test_num 0 --iterations 1000
@@ -104,20 +104,20 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
 </div>
 
 - Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
-- Fig. b shows the average stepsize of five agents across the comparison algorithms over iterations.
-- Fig. c shows the median, first and third quartiles, and the 5th to 95th percentiles of the average stepsize in the six algorithms.
-- Fig. d shows the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of wallclock time, respectively.
-- Fig. e shows the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of communication rounds, respectively.
-- Fig. f shows the comparison results of Algorithm 1 (synchronous parallel updates) with Algorithm 3 (asynchronous parallel updates) under different numbers of asynchronous-parallel-update iterations.
+  The result demonstrates that Algorithm 1 has better convergence accuracy compared with its single-inner-consensus-loop variant (Algorithm 2 with K=1, its asynchronous-parallel-update variant (Algorithm 3 with Q=10), the decentralized adaptive algorithm with Barzilai-Borwein stepsizes (DGM-BB-C [1]), and DGD [2].
+- Fig. b and Fig. c show the scatter and box plots of the average stepsize of five agents in the comparison algorithms. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
+- Fig. d shows the loss evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations. The result demonstrates that a moderate number of asynchronous-parallel-update iterations in each communication round can indeed reduce communication overhead and speed up convergence, however, too large an amount of local computation per communication round leads to degraded convergence accuracy, especially in the later stages of convergence. 
+- Fig. e and Fig. f show the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of the used communication rounds and wallclock time, respectively. These results confirm that Algorithm 3 with 10-steps of asynchronous parallel update achieves the lowest communication complexity and wallclock time compared with existing counterpart algorithms.
 
-> Note: All experimental results (including loss, wallclock time, average stepsizes) will be autonomously saved as `.csv` files in the `./Logistic_regression/results` directory.
+> Note: All experimental results (e.g., loss, wallclock time, average stepsizes) will be autonomously saved as `.csv` files in the `./Logistic_regression/results` directory.
 
-## 💪 Matrix factorization
-> Note: Please change directory to [`./Matrix_factorization`](./Matrix_factorization) before running the following commands.
+## Matrix factorization
 1. You can use the following command to execute Algorithm 1 for the matrix factorization task:
    ```shell
    python main.py --test_num 0 --iterations 1000
    ```
+   > Note: Please change directory to [`./Matrix_factorization`](./Matrix_factorization) before running the above command.
+   
    ![Matrix](./figures/Matrix_factorization_execution.gif)
    - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
    - `--iterations`: sets the number of training iterations.
@@ -152,7 +152,7 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
   <img src="./figures/matrix_factorization.png" alt="Fig4" width="900">
 </div>
 
-- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
+- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1 [1], and DGD [2] over 150 iterations, respectively.
 - Fig. b shows the average stepsize of five agents across the comparison algorithms over iterations.
 - Fig. c shows the median, first and third quartiles, and the 5th to 95th percentiles of the average stepsize in the six algorithms.
 - Fig. d shows the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of wallclock time, respectively.
