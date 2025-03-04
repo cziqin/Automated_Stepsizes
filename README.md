@@ -129,7 +129,7 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
    ```shell
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
-4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it was the almost optimal stepsize that we could find based on the following convergence results of DGD [2] under different stepsize settings:
+4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it was the almost optimal stepsize that we could find based on the following convergence results of DGD [2] under different stepsize settings after $200$ iterations:
    <table>
      <tr> <th rowspan="2">Algorithms</th> <th colspan="9">Stepsizes</th>
      </tr>
@@ -179,7 +179,7 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10' --const_q 10
    ```
-3. To specify the print interval (e.g., printing the training loss, test accuracy, and average stepsize every 10 iterations), you can run the following command:
+3. To specify the print interval (e.g., printing the training loss, test accuracy, and average stepsize every $10$ iterations), you can run the following command:
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10' --interval 10
    ```
@@ -187,54 +187,58 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10' --seed 42
    ```
-5. In this experiment, we set the stepsize $\eta=0.005$ for DADAM, $\eta=0.1$ for DAMSGrad, and $\eta=0.5$ for DSGD-N, respectively, since they were the suboptimal stepsizes that we found based on the following tuning results (in terms of test accuracy) after 100 epochs:
-   <table>
-     <tr> 
-       <th rowspan="2">Step Sizes</th>    <th colspan="4">Algorithms</th>
-     </tr>
-     <tr> 
-       <th>DADAM</th>   <th>DAMSGrad</th>  <th>DSGD-N</th>   <th>Algorithm 3 (without tuning)</th>
-     </tr>
-     <tr>
-       <td>0.00001</td> <td>0.304 &pm; 0.012</td> <td>0.223 &pm; 0.012</td> <td>0.156 &pm; 0.022</td> <td rowspan="13"><b>0.794 &pm; 0.002</b></td>
-     </tr>
-     <tr>
-       <td>0.00005</td> <td>0.507 &pm; 0.006</td> <td>0.295 &pm; 0.004</td> <td>0.208 &pm; 0.014</td>
-     </tr>
-     <tr>
-       <td>0.0001</td> <td>0.579 &pm; 0.010</td> <td>0.368 &pm; 0.005</td> <td>0.220 &pm; 0.013</td>
-     </tr>
-     <tr>
-       <td>0.0005</td> <td>0.685 &pm; 0.006</td> <td>0.597 &pm; 0.009</td> <td>0.261 &pm; 0.002</td>
-     </tr>
-     <tr>
-       <td>0.001</td> <td>0.709 &pm; 0.009</td> <td>0.654 &pm; 0.019</td> <td>0.323 &pm; 0.002</td>
-     </tr>
-     <tr>
-       <td>0.005</td> <td><b>0.767 &pm; 0.009</b></td> <td>0.713 &pm; 0.018</td> <td>0.571 &pm; 0.007</td>
-     </tr>
-     <tr>
-       <td>0.01</td> <td>0.754 &pm; 0.023</td> <td>0.718 &pm; 0.022</td> <td>0.619 &pm; 0.026</td>
-     </tr>
-     <tr>
-       <td>0.05</td> <td>0.671 &pm; 0.009</td> <td>0.741 &pm; 0.009</td> <td>0.697 &pm; 0.013</td>
-     </tr>
-     <tr>
-       <td>0.1</td> <td>0.646 &pm; 0.026</td> <td><b>0.762 &pm; 0.008</b></td> <td>0.757 &pm; 0.012</td>
-     </tr>
-     <tr>
-       <td>0.5</td> <td>0.634 &pm; 0.027</td> <td>0.668 &pm; 0.008</td> <td><b>0.764 &pm; 0.008</b></td>
-     </tr>
-     <tr>
-       <td>1</td> <td>0.511 &pm; 0.083</td> <td>0.652 &pm; 0.025</td> <td>0.736 &pm; 0.007</td>
-     </tr>
-     <tr>
-       <td>5</td> <td>0.329 &pm; 0.124</td> <td>0.169 &pm; 0.031</td> <td>0.664 &pm; 0.013</td>
-     </tr>
-     <tr>
-       <td>10</td> <td>0.309 &pm; 0.096</td> <td>0.164 &pm; 0.040</td> <td>0.100 &pm; 0.000</td>
-     </tr>
-   </table>
+5. In this experiment, we set the stepsize $\eta=0.005$ for DADAM, $\eta=0.1$ for DAMSGrad, and $\eta=0.5$ for DSGD-N, respectively, since they were the almost optimal stepsizes that we could find based on the following test-accuracy results after 100 epochs:
+<table>
+    <tr> 
+        <th rowspan="2">Stepsizes</th>    
+        <th colspan="4">Algorithms</th>
+    </tr>
+    <tr> 
+        <th>DADAM</th>   
+        <th>DAMSGrad</th>  
+        <th>DSGD-N</th>   
+        <th>Algorithm 3 ($Q=1$; with no tuning)</th>
+    </tr>
+    <tr>
+        <td>10</td> <td>0.309 &pm; 0.096</td> <td>0.164 &pm; 0.040</td> <td>0.100 &pm; 0.000</td> <td rowspan="13"><b>0.804 &pm; 0.011</b></td>
+    </tr>
+    <tr>
+        <td>5</td> <td>0.329 &pm; 0.124</td> <td>0.169 &pm; 0.031</td> <td>0.664 &pm; 0.013</td>
+    </tr>
+    <tr>
+        <td>1</td> <td>0.511 &pm; 0.083</td> <td>0.652 &pm; 0.025</td> <td>0.736 &pm; 0.007</td>
+    </tr>
+    <tr>
+        <td>0.5</td> <td>0.634 &pm; 0.027</td> <td>0.668 &pm; 0.008</td> <td><b>0.764 &pm; 0.008</b></td>
+    </tr>
+    <tr>
+        <td>0.1</td> <td>0.646 &pm; 0.026</td> <td><b>0.762 &pm; 0.008</b></td> <td>0.757 &pm; 0.012</td>
+    </tr>
+    <tr>
+        <td>0.05</td> <td>0.671 &pm; 0.009</td> <td>0.741 &pm; 0.009</td> <td>0.697 &pm; 0.013</td>
+    </tr>
+    <tr>
+        <td>0.01</td> <td>0.754 &pm; 0.023</td> <td>0.718 &pm; 0.022</td> <td>0.619 &pm; 0.026</td>
+    </tr>
+    <tr>
+        <td>0.005</td> <td><b>0.767 &pm; 0.009</b></td> <td>0.713 &pm; 0.018</td> <td>0.571 &pm; 0.007</td>
+    </tr>
+    <tr>
+        <td>0.001</td> <td>0.709 &pm; 0.009</td> <td>0.654 &pm; 0.019</td> <td>0.323 &pm; 0.002</td>
+    </tr>
+    <tr>
+        <td>0.0005</td> <td>0.685 &pm; 0.006</td> <td>0.597 &pm; 0.009</td> <td>0.261 &pm; 0.002</td>
+    </tr>
+    <tr>
+        <td>0.0001</td> <td>0.579 &pm; 0.010</td> <td>0.368 &pm; 0.005</td> <td>0.220 &pm; 0.013</td>
+    </tr>
+    <tr>
+        <td>0.00005</td> <td>0.507 &pm; 0.006</td> <td>0.295 &pm; 0.004</td> <td>0.208 &pm; 0.014</td>
+    </tr>
+    <tr>
+        <td>0.00001</td> <td>0.304 &pm; 0.012</td> <td>0.223 &pm; 0.012</td> <td>0.156 &pm; 0.022</td>
+    </tr>
+</table>
 
 ### Experimental results
 <div style="text-align: center">
