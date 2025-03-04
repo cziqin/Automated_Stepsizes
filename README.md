@@ -165,8 +165,7 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
 1. You can use the following command to execute Algorithm 1 for the conventional neural network training task on the "CIFAR-10" dataset:
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10'
-   ```
-   
+   ```  
    >Note: Before running the script, please ensure that the [`CIFAR-10`](https://www.cs.toronto.edu/~kriz/cifar.html) dataset has been downloaded and placed in the `./Neural_networks/data` directory.
 
    - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 3; `1`: DADAM [3]; `2`: DAMSGrad [4]; `3`: DSGD-N [5]; `4`: ATC-DIGing [6]; `5`: DSGD [2].
@@ -257,6 +256,8 @@ overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Alg
    ```shell
    python main.py --test_num 0 --epochs 20 --batch_size 128 --dataset 'imagenet'
    ```
+   >Note: Before running the script, please ensure that the [`ImageNet`](https://image-net.org) dataset has been downloaded and splited. Moreover, please ensure that the training and test       sets are placed in      the `./Neural_networks/data/imagenet/train` and `./Neural_networks/data/imagenet/sort_val` directories, respectively.
+
 2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations Q (e.g., Q=10), you can run the following command:
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'imagenet' --const_q 10
