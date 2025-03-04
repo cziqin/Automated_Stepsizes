@@ -274,14 +274,13 @@ overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Alg
 
 ### Experimental results
 <div style="text-align: center">
-  <img src="./figures/cifar10.png" alt="Fig5" width="900">
+  <img src="./figures/imagenet.png" alt="Fig5" width="900">
 </div>
 
-- Fig. a and Fig. b show the training-loss and (top-1) test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over $70$ epochs, respectively. The shaded area represents the 95% confidence interval. These results demonstrate that that Algorithm 3 with Q=1 (corresponding to Algorithm 1 using noisy rather than exact gradients) achieves a lower training loss and a higher test accuracy compared with DADAM, DAMSGrad, and DSGD-Nesterov's momentum even without any parameter tuning.
-- Fig. c and Fig. d show the average stepsize (of $5$ agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
-- Fig. e shows the comparison results of Algorithm 3 with ATC-DIGing (with $\eta=0.02$) and DSGD (with $\eta=10^{-4}$) in terms of communication rounds. The result demonstrate that Algorithm 3 with Q=15 dramatically reduces communication
-overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Algorithm 3 with Q=15 reaches a 0.7 test accuracy using only 200 communication rounds, whereas Algorithm 3 with Q=1 requires over 1000 communication rounds to achieve the same level of test accuracy.
-- Fig. f shows the (top-1) test-accuracy evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations in terms of communication rounds. The result indicates that too large Q will compromise convergence accuracy, and hence, choosing an appropriate Q is important for an asynchronous-parallel-update algorithm in CNN training.
+- Fig. a shows the training-loss evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over 10 epochs, respectively.
+- Fig. b and Fig. c show the top-1 test-accuracy and top-5 test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over 10 epochs, respectively. The shaded area represents the 95% confidence interval. These results once again confirm that our Algorithm 3 with Q=1 outperforms existing counterpart algorithms. 
+- Fig. d and Fig. e show the average stepsize (of $5$ agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
+- Fig. f shows the (top-1) test-accuracy evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations in terms of communication rounds. The result confirms the advantage of Algorithm 3 in reducing communication complexity.
 
 > Note: All experimental results (e.g., training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
