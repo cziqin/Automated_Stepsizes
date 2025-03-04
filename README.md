@@ -284,12 +284,16 @@ overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Alg
 
 > Note: All experimental results (e.g., training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
-## 🚀 Discussions
+## 🚀 Conclusion
+This repository provides code for implementing our algorithms and the comparison algorithms in three typical machine learning applications: logistic regression on the "mushrooms" dataset, matrix factorization on the "MovieLens 100k" dataset, and image classification on the "CIFAR-10" dataset and the "ImageNet" dataset, respectively. All experimental results demonstrate that Algorithm 1 achieves higher convergence accuracy than existing counterpart algorithms, even without any manual tuning. Moreover, the experimental results on Algorithm 2 confirm the effectiveness of our automated step-size approach even under inexact consensus operations. At the same time, the experimental results on Algorithm 3 demonstrate the practicality of our approach in asynchronous-parallel-update settings, which also validates the robustness of Algorithm 3 to network issues, such as communication latency and link failure between agents. To the best of our knowledge, this is the first repository to successfully automate stepsize selection in decentralized optimization and learning without requiring any manual parameter tuning or incurring accuracy degradation.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ## References
 [1] [DGM-BB-C](https://doi.org/10.1007/s11432-020-3256-x)
 
-[2] [DGD](https://doi.org/10.1137/130943170)
+[2] [DGD (DSGD)](https://doi.org/10.1137/130943170)
 
 [3] [DADAM](https://ieeexplore.ieee.org/document/9973382)
 
@@ -299,9 +303,6 @@ overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Alg
 
 [6] [ATC-DIGing](https://ieeexplore.ieee.org/document/7963560)
 
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 ## Authors
 - [Ziqin Chen](https://scholar.google.com/citations?user=i-IM2rIAAAAJ&hl=zh-CN)
 - [Yongqiang Wang](https://scholar.google.com/citations?hl=zh-CN&user=shSZpGUAAAAJ)
