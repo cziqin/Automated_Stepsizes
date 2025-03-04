@@ -5,7 +5,7 @@ We propose an approach that allows individual agents to autonomously adapt their
 
 ![Introduction](./figures/introduction.png)
 
-## 🕵️ Outlines
+## Outlines
 - Installation Tutorial and Preliminaries
 - Logistic Regression
 - Matrix Factorization
@@ -13,7 +13,7 @@ We propose an approach that allows individual agents to autonomously adapt their
 - Discussions
 - License
 
-## 🔧 Installation Tutorial and Preliminaries
+## Installation Tutorial and Preliminaries
 ### Install Setup
 1. Clone this [repository](https://github.com/cziqin/Automated_Stepsizes/tree/main)
 2. Download and install [Anaconda](https://www.anaconda.com) (if you don't have it already)
@@ -32,27 +32,27 @@ The experiments were conducted using the Windows 11 OS equipped with a 32-core C
 
 ### Repository Structure
 ```
-├── Logistic_regression                 # directory to implement a logistic regression classification problem
-│   ├── results                         # .csv files for experimental results
-│   ├── loss_function.py                # defines the loss function 
+├── Logistic_regression                 # directory to implement logistic regression classification
+│   ├── results                         # save experimental results (.csv files)
+│   ├── loss_function.py                # the used loss function 
 │   ├── main.py                         # entry point
-│   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
-│   ├── mushrooms                       # the mushrooms datasets
+│   ├── matrix.py                       # excuctes Subroutine 1, finite-time consensus, or imperfect consensus
+│   ├── mushrooms                       # the "mushrooms" datasets
 │   ├── optimizer.py                    # optimization algorithms
-│   └── train.py                        # training script for model training and evaluation
+│   └── train.py                        # script for model training and evaluation
 ├── Matirx_factorization
 │   ├── main.py                         # entry point
-│   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
+│   ├── matrix.py                       # excuctes Subroutine 1, finite-time consensus, or imperfect consensus
 │   ├── optimizer.py                    # optimization algorithms
-│   └── u.data                          # the MovieLens 100k dataset
+│   └── u.data                          # the "MovieLens 100k" dataset
 ├── Neural_networks                         
-│   ├── datadeal.py                     # splits the downloaded ImageNet dataset into training and test sets          
+│   ├── datadeal.py                     # splits the downloaded "ImageNet" dataset into training and test sets          
 │   ├── main.py                         # entry point
-│   ├── matrix.py                       # generates communication matrix and excuctes Subroutine 1
-│   ├── models.py                       # the model used in CNN training on the Cifar-10 dataset
+│   ├── matrix.py                       # excuctes Subroutine 1 or finite-time consensus
+│   ├── models.py                       # the model used in the CNN training on the "Cifar-10" dataset
 │   ├── ops.py                          # optimization algorithms
-│   ├── resnet.py                       # the model used in CNN training on the ImageNet dataset   
-│   └── train.py                        # training script for model training and evaluation
+│   ├── resnet.py                       # the model used in the CNN training on the "ImageNet" dataset   
+│   └── train.py                        # script for model training and evaluation
 ├── LICENSE                             # License file
 ├── README.md                                             
 └── requirements.txt                    # list of dependencies required to run the project             
@@ -67,27 +67,28 @@ The experiments were conducted using the Windows 11 OS equipped with a 32-core C
 | ImageNet       | https://image-net.org                                    | `./Neural_networks/data/imagenet/` |
 
 Ensure that each dataset is downloaded and placed in its corresponding directory before running the experiments.
->Note: For ImageNet dataset, you need to first ensure that the [dataset](https://image-net.org) has been downloaded before running the respective script. Next, you should run [~~datadeal.py~~](./Neural_networks/datadeal.py) to split the dataset into training and test sets, which implies that **it would not conduct any actions that might result in data leakage.** Finally, make sure they are placed in the `./Neural_networks/data/imagenet/train` and `./Neural_networks/data/imagenet/sort_val` directories, respectively. 
+>Note: For the "ImageNet" dataset, you should first ensure that the [dataset](https://image-net.org) has been downloaded. Then, you need to run [datadeal](./Neural_networks/datadeal.py) to split the dataset into the training set and the test set, respectively. This step ensures that no data leakage occurs. Finally, make sure the training and test sets are placed in the `./Neural_networks/data/imagenet/train` and `./Neural_networks/data/imagenet/sort_val` directories, respectively. 
 
 ## 💪 Logistic regression
-> Note: Please change directory to [`./Logistic_regression`](./Logistic_regression) before running the following commands.
 1. You can use the following command to execute Algorithm 1 for the logistic regression task:
     ```shell
     python main.py --test_num 0 --iterations 1000
     ```
+   > Note: Please change directory to [`./Logistic_regression`](./Logistic_regression) before running the above command.
+
    ![Mushroom](./figures/mushrooms_execution.gif)
-   - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
+   - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C [1]; `3`: DGD [2].
    - `--iterations`: sets the number of training iterations.
 2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K$ (e.g., $K=10$), you can run the following command:
    ```shell
    python main.py --test_num 1 --iterations 1000 --k_loop 10
    ```
-3. To execute ~~Algorithm 3~~ with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can run the following command:
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can run the following command:
    ```shell
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
-   > Note: Parameter `K` represents the number of inner-consensus-loop iterations in Algorithm 2 and DGM-BB-C; Parameter `Q` represents the number of asynchronous-parallel-update iterations in ~~Algorithm 3~~.
-4. In this experiment, we set the stepsize $\eta=1/L_{\max}=0.0351132$ for DGD, which follows the guideline in [42]. The stepsizes of Algorithm 1, Algorithm 2, and DGM-BB-C are automatically adjusted without requiring any manual tuning.
+   > Note: The parameter `K` represents the number of inner-consensus-loop iterations in Algorithm 2 and DGM-BB-C. The parameter `Q` represents the number of asynchronous-parallel-update iterations in Algorithm 3.
+4. In this experiment, we set the stepsize $\eta=1/L_{\max}=0.0351132$ for DGD, which follows the default paramater suggested by [2]. The stepsizes of Algorithm 1, Algorithm 2, and DGM-BB-C are automatically adjusted without requiring any manual tuning.
 5. Our tuning-free stepsize update code in the [`optimizer.py`](./Logistic_regression/optimizers.py) file is given as follows:
    ```python
    if iteration == 0:
@@ -270,6 +271,11 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
 5. In this experiment, we set the same step size for DADAM, DAMSGrad, and DSGD-N as those used in the CIFAR-10 experiment, because tuning stepsizes for them in CNN training on the large-scale ImageNet dataset (which consists of over 1.28 million images) would cost a substantial amount of time. 
 
 ## 🚀 Discussions
+
+## References
+[1] [DGM-BB-C](https://doi.org/10.1007/s11432-020-3256-x)
+[2] [DGD](https://doi.org/10.1137/130943170)
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
