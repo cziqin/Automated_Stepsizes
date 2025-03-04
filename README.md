@@ -103,11 +103,11 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
   <img src="./figures/mushrooms.png" alt="Fig3" width="900">
 </div>
 
-- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
-  The result demonstrates that Algorithm 1 has better convergence accuracy compared with its single-inner-consensus-loop variant (Algorithm 2 with K=1, its asynchronous-parallel-update variant (Algorithm 3 with Q=10), the decentralized adaptive algorithm with Barzilai-Borwein stepsizes (DGM-BB-C [1]), and DGD [2].
+- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with $K=1$, Algorithm 2 with $K=10$, Algorithm 3 with $Q=10$, DGM-BB-C with $K=1$, and DGD over iterations, respectively.
+  The result demonstrates that Algorithm 1 has better convergence accuracy compared with its single-inner-consensus-loop variant (Algorithm 2 with $K=1$, its asynchronous-parallel-update variant (Algorithm 3 with $Q=10$), the decentralized adaptive algorithm with Barzilai-Borwein stepsizes (DGM-BB-C [1]), and DGD [2].
 - Fig. b and Fig. c show the scatter and box plots of the average stepsize of five agents in the comparison algorithms. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
 - Fig. d shows the loss evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations. The result demonstrates that a moderate number of asynchronous-parallel-update iterations in each communication round can indeed reduce communication overhead and speed up convergence, however, too large an amount of local computation per communication round leads to degraded convergence accuracy, especially in the later stages of convergence. 
-- Fig. e and Fig. f show the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of the used communication rounds and wallclock time, respectively. These results confirm that Algorithm 3 with 10-steps of asynchronous parallel update achieves the lowest communication complexity and wallclock time compared with existing counterpart algorithms.
+- Fig. e and Fig. f show the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of the used communication rounds and wallclock time, respectively. These results confirm that Algorithm 3 with $10$-steps of asynchronous parallel updates achieves the lowest communication complexity and wallclock time compared with existing counterpart algorithms.
 
 > Note: All experimental results (e.g., loss, wallclock time, average stepsizes) will be autonomously saved as `.csv` files in the `./Logistic_regression/results` directory.
 
@@ -125,11 +125,11 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
    ```shell
    python main.py --test_num 1 --iterations 1000 --k_loop 10
    ```
-3. To execute ~~Algorithm 3~~ with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can run the following command:
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can run the following command:
    ```shell
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
-4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it was the suboptimal stepsize that we found based on the following tuning results after 200 iterations:
+4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it was the almost optimal stepsize that we could find based on the following convergence results of DGD [2] under different stepsize settings:
    <table>
      <tr> <th rowspan="2">Algorithms</th> <th colspan="9">Stepsizes</th>
      </tr>
@@ -145,7 +145,7 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
      </tr>
    </table>
    
-   >Note: Since the standard deviations of all algorithms are smaller than 0.001, they are omitted in this table.
+   >Since the standard deviations of DGD's and Algorithm's losses are both less than 0.001, they are omitted in this table.
 
 ### Experimental results
 <div style="text-align:center">
