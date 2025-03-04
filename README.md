@@ -49,7 +49,7 @@ The experiments were conducted using the Windows 11 OS equipped with a 32-core C
 │   ├── datadeal.py                     # splits the downloaded "ImageNet" dataset into training and test sets          
 │   ├── main.py                         # entry point
 │   ├── matrix.py                       # excuctes Subroutine 1 or finite-time consensus
-│   ├── models.py                       # the model used in the CNN training on the "Cifar-10" dataset
+│   ├── models.py                       # the model used in the CNN training on the "CIFAR-10" dataset
 │   ├── ops.py                          # optimization algorithms
 │   ├── resnet.py                       # the model used in the CNN training on the "ImageNet" dataset   
 │   └── train.py                        # script for model training and evaluation
@@ -79,11 +79,11 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
    ![Mushroom](./figures/mushrooms_execution.gif)
    - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C [1]; `3`: DGD [2].
    - `--iterations`: sets the number of training iterations.
-2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K$ (e.g., $K=10$), you can run the following command:
+2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations K (e.g., K=10), you can run the following command:
    ```shell
    python main.py --test_num 1 --iterations 1000 --k_loop 10
    ```
-3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can run the following command:
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations Q (e.g., Q=10), you can run the following command:
    ```shell
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
@@ -103,11 +103,11 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
   <img src="./figures/mushrooms.png" alt="Fig3" width="900">
 </div>
 
-- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with $K=1$, Algorithm 2 with $K=10$, Algorithm 3 with $Q=10$, DGM-BB-C with $K=1$, and DGD over iterations, respectively.
-  The result demonstrates that Algorithm 1 has better convergence accuracy compared with its single-inner-consensus-loop variant (Algorithm 2 with $K=1$, its asynchronous-parallel-update variant (Algorithm 3 with $Q=10$), the decentralized adaptive algorithm with Barzilai-Borwein stepsizes (DGM-BB-C [1]), and DGD [2].
+- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively.
+  The result demonstrates that Algorithm 1 has better convergence accuracy compared with its single-inner-consensus-loop variant (Algorithm 2 with K=1, its asynchronous-parallel-update variant (Algorithm 3 with Q=10), the decentralized adaptive algorithm with Barzilai-Borwein stepsizes (DGM-BB-C [1]), and DGD [2].
 - Fig. b and Fig. c show the scatter and box plots of the average stepsize of five agents in the comparison algorithms. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
 - Fig. d shows the loss evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations. The result demonstrates that a moderate number of asynchronous-parallel-update iterations in each communication round can indeed reduce communication overhead and speed up convergence, however, too large an amount of local computation per communication round leads to degraded convergence accuracy, especially in the later stages of convergence. 
-- Fig. e and Fig. f show the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of the used communication rounds and wallclock time, respectively. These results confirm that Algorithm 3 with $10$-steps of asynchronous parallel updates achieves the lowest communication complexity and wallclock time compared with existing counterpart algorithms.
+- Fig. e and Fig. f show the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of the used communication rounds and wallclock time, respectively. These results confirm that Algorithm 3 with 10-steps of asynchronous parallel updates achieves the lowest communication complexity and wallclock time compared with existing counterpart algorithms.
 
 > Note: All experimental results (e.g., loss, wallclock time, and average stepsizes) will be autonomously saved as `.csv` files in the `./Logistic_regression/results` directory.
 
@@ -121,15 +121,15 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
    ![Matrix](./figures/Matrix_factorization_execution.gif)
    - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
    - `--iterations`: sets the number of training iterations.
-2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations $K$ (e.g., $K=10$), you can run the following command:
+2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations K (e.g., K=10), you can run the following command:
    ```shell
    python main.py --test_num 1 --iterations 1000 --k_loop 10
    ```
-3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can run the following command:
+3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations Q (e.g., Q=10), you can run the following command:
    ```shell
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
-4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it was the almost optimal stepsize that we could find based on the following convergence results of DGD [2] under different stepsize settings after $200$ iterations:
+4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it was the almost optimal stepsize that we could find based on the following convergence results of DGD [2] under different stepsize settings after 200 iterations:
    <table>
      <tr> <th rowspan="2">Algorithms</th> <th colspan="9">Stepsizes</th>
      </tr>
@@ -162,7 +162,7 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
 
 ## Neural network training
 > Note: Please change directory to [`./Neural_networks`](./Neural_networks) before running the following commands.
-### Cifar 10
+### CIFAR-10
 1. You can use the following command to execute Algorithm 1 for the conventional neural network training task on the "CIFAR-10" dataset:
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10'
@@ -175,11 +175,11 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
    - `--batch_size`: sets the batch size for training.
    - `--dataset`: specifies the dataset to be used for training. The default option is 'cifar10'.
 
-2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can run the following command:
+2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations Q (e.g., Q=10), you can run the following command:
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10' --const_q 10
    ```
-3. To specify the print interval (e.g., printing the training loss, test accuracy, and average stepsize every $10$ iterations), you can run the following command:
+3. To specify the print interval (e.g., printing the training loss, test accuracy, and average stepsize every 10 iterations), you can run the following command:
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10' --interval 10
    ```
@@ -197,7 +197,7 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
         <th>DADAM</th>   
         <th>DAMSGrad</th>  
         <th>DSGD-N</th>   
-        <th>Algorithm 3 ($Q=1$; with no tuning)</th>
+        <th>Algorithm 3 (Q=1; with no tuning)</th>
     </tr>
     <tr>
         <td>10</td> <td>0.309 &pm; 0.096</td> <td>0.164 &pm; 0.040</td> <td>0.100 &pm; 0.000</td> <td rowspan="13"><b>0.804 &pm; 0.011</b></td>
@@ -245,8 +245,8 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
   <img src="./figures/cifar10.png" alt="Fig5" width="900">
 </div>
 
-- Fig. a and Fig. b show the training-loss and (top-1) test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over $70$ epochs, respectively. The shaded area represents the 95% confidence interval. These results demonstrate that that Algorithm 3 with Q=1 (corresponding to Algorithm 1 using noisy rather than exact gradients) achieves a lower training loss and a higher test accuracy compared with DADAM, DAMSGrad, and DSGD-Nesterov's momentum even without any parameter tuning.
-- Fig. c and Fig. d show the average stepsize (of $5$ agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
+- Fig. a and Fig. b show the training-loss and (top-1) test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over 70 epochs, respectively. The shaded area represents the 95% confidence interval. These results demonstrate that that Algorithm 3 with Q=1 (corresponding to Algorithm 1 using noisy rather than exact gradients) achieves a lower training loss and a higher test accuracy compared with DADAM, DAMSGrad, and DSGD-Nesterov's momentum even without any parameter tuning.
+- Fig. c and Fig. d show the average stepsize (of 5 agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
 - Fig. e shows the comparison results of Algorithm 3 with ATC-DIGing (with $\eta=0.02$) and DSGD (with $\eta=10^{-4}$) in terms of communication rounds. The result demonstrate that Algorithm 3 with Q=15 dramatically reduces communication
 overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Algorithm 3 with Q=15 reaches a 0.7 test accuracy using only 200 communication rounds, whereas Algorithm 3 with Q=1 requires over 1000 communication rounds to achieve the same level of test accuracy.
 - Fig. f shows the (top-1) test-accuracy evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations in terms of communication rounds. The result indicates that too large Q will compromise convergence accuracy, and hence, choosing an appropriate Q is important for an asynchronous-parallel-update algorithm in CNN training.
@@ -258,7 +258,7 @@ overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Alg
    ```shell
    python main.py --test_num 0 --epochs 20 --batch_size 128 --dataset 'imagenet'
    ```
-2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations $Q$ (e.g., $Q=10$), you can run the following command:
+2. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations Q (e.g., Q=10), you can run the following command:
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'imagenet' --const_q 10
    ```
@@ -279,12 +279,12 @@ overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Alg
 
 - Fig. a shows the training-loss evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over 10 epochs, respectively.
 - Fig. b and Fig. c show the top-1 test-accuracy and top-5 test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over 10 epochs, respectively. The shaded area represents the 95% confidence interval. These results once again confirm that our Algorithm 3 with Q=1 outperforms existing counterpart algorithms. 
-- Fig. d and Fig. e show the average stepsize (of $5$ agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
+- Fig. d and Fig. e show the average stepsize (of 5 agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
 - Fig. f shows the (top-1) test-accuracy evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations in terms of communication rounds. The result confirms the advantage of Algorithm 3 in reducing communication complexity.
 
 > Note: All experimental results (e.g., training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
-## Conclusion
+## Conclusions
 This repository provides code for implementing our algorithms and the comparison algorithms in three typical machine learning applications: logistic regression on the "mushrooms" dataset, matrix factorization on the "MovieLens 100k" dataset, and image classification on the "CIFAR-10" dataset and the "ImageNet" dataset, respectively. All experimental results demonstrate that Algorithm 1 achieves higher convergence accuracy than existing counterpart algorithms, even without any manual tuning. Moreover, the experimental results on Algorithm 2 confirm the effectiveness of our automated step-size approach even under inexact consensus operations. At the same time, the experimental results on Algorithm 3 demonstrate the practicality of our approach in asynchronous-parallel-update settings, which also validates the robustness of Algorithm 3 to network issues, such as communication latency and link failure between agents. To the best of our knowledge, this is the first repository to successfully automate stepsize selection in decentralized optimization and learning without requiring any manual parameter tuning or incurring accuracy degradation.
 
 ## License
