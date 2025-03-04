@@ -160,7 +160,7 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
 
 > Note: All experimental results (e.g., loss, wallclock time, and average stepsizes) will be autonomously saved as `.csv` files in the `./Matrix_factorization/results` directory.
 
-## 💪 Neural network training
+## Neural network training
 > Note: Please change directory to [`./Neural_networks`](./Neural_networks) before running the following commands.
 ### Cifar 10
 1. You can use the following command to execute Algorithm 1 for the conventional neural network training task on the "CIFAR-10" dataset:
@@ -284,7 +284,7 @@ overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Alg
 
 > Note: All experimental results (e.g., training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
-## 🚀 Conclusion
+## Conclusion
 This repository provides code for implementing our algorithms and the comparison algorithms in three typical machine learning applications: logistic regression on the "mushrooms" dataset, matrix factorization on the "MovieLens 100k" dataset, and image classification on the "CIFAR-10" dataset and the "ImageNet" dataset, respectively. All experimental results demonstrate that Algorithm 1 achieves higher convergence accuracy than existing counterpart algorithms, even without any manual tuning. Moreover, the experimental results on Algorithm 2 confirm the effectiveness of our automated step-size approach even under inexact consensus operations. At the same time, the experimental results on Algorithm 3 demonstrate the practicality of our approach in asynchronous-parallel-update settings, which also validates the robustness of Algorithm 3 to network issues, such as communication latency and link failure between agents. To the best of our knowledge, this is the first repository to successfully automate stepsize selection in decentralized optimization and learning without requiring any manual parameter tuning or incurring accuracy degradation.
 
 ## License
