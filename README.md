@@ -33,7 +33,6 @@ The experiments were conducted using the Windows 11 OS equipped with a 32-core C
 ### Repository Structure
 ```
 ├── Logistic_regression                 # directory to implement logistic regression classification
-│   ├── results                         # save experimental results (.csv files)
 │   ├── loss_function.py                # the used loss function 
 │   ├── main.py                         # entry point
 │   ├── matrix.py                       # excucte Subroutine 1, finite-time consensus, or imperfect consensus
@@ -48,7 +47,7 @@ The experiments were conducted using the Windows 11 OS equipped with a 32-core C
 ├── Neural_networks                         
 │   ├── datadeal.py                     # split the downloaded "ImageNet" dataset into training and test sets          
 │   ├── main.py                         # entry point
-│   ├── matrix.py                       # excuctes Subroutine 1 or finite-time consensus
+│   ├── matrix.py                       # excucte Subroutine 1 or finite-time consensus
 │   ├── models.py                       # the model used in the CNN training on the "CIFAR-10" dataset
 │   ├── ops.py                          # optimization algorithms
 │   ├── resnet.py                       # the model used in the CNN training on the "ImageNet" dataset   
