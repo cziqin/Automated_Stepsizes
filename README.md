@@ -95,7 +95,7 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
        self.eta[i].append(self.eta[i][0])
    else:
        a = np.sqrt(1 + self.eta[i][iteration] / self.eta[i][iteration - 1]) * self.eta[i][iteration]
-       b = la.norm(self.agent_parameters[i][iteration + 1] - self.agent_parameters[i][iteration]) / la.norm(self.agent_y[i][iteration+ 1] - self.agent_y[i][iteration])
+       b = la.norm(self.agent_parameters[i][iteration + 1] - self.agent_parameters[i][iteration]) / (2 * la.norm(self.agent_y[i][iteration+ 1] - self.agent_y[i][iteration]))
        self.eta[i].append(min(a, b))
    ```
 ### Experimental results
