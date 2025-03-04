@@ -245,16 +245,16 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
   <img src="./figures/cifar10.png" alt="Fig5" width="900">
 </div>
 
-- Fig. a and Fig. b show the training-loss and (top-1) test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over 70 epochs, respectively. The shaded area represents the 95% confidence interval. These results demonstrate that that Algorithm 3 with Q=1 (corresponding to Algorithm 1 using noisy rather than exact gradients) achieves a lower training loss and a higher test accuracy compared with DADAM, DAMSGrad, and DSGD-Nesterov's momentum even without any parameter tuning.
+- Fig. a and Fig. b show the training-loss and (top-1) test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over $70$ epochs, respectively. The shaded area represents the 95% confidence interval. These results demonstrate that that Algorithm 3 with Q=1 (corresponding to Algorithm 1 using noisy rather than exact gradients) achieves a lower training loss and a higher test accuracy compared with DADAM, DAMSGrad, and DSGD-Nesterov's momentum even without any parameter tuning.
 - Fig. c and Fig. d show the average stepsize (of $5$ agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
 - Fig. e shows the comparison results of Algorithm 3 with ATC-DIGing (with $\eta=0.02$) and DSGD (with $\eta=10^{-4}$) in terms of communication rounds. The result demonstrate that Algorithm 3 with Q=15 dramatically reduces communication
 overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Algorithm 3 with Q=15 reaches a 0.7 test accuracy using only 200 communication rounds, whereas Algorithm 3 with Q=1 requires over 1000 communication rounds to achieve the same level of test accuracy.
 - Fig. f shows the (top-1) test-accuracy evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations in terms of communication rounds. The result indicates that too large Q will compromise convergence accuracy, and hence, choosing an appropriate Q is important for an asynchronous-parallel-update algorithm in CNN training.
 
-> Note: All experimental results (including training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
+> Note: All experimental results (e.g., training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
 ### ImageNet
-1. You can use the following command to execute Algorithm 3 for the conventional neural network (CNN) training task on the ImageNet dataset:
+1. You can use the following command to execute Algorithm 3 for the conventional neural network (CNN) training task on the "ImageNet" dataset:
    ```shell
    python main.py --test_num 0 --epochs 20 --batch_size 128 --dataset 'imagenet'
    ```
@@ -270,16 +270,34 @@ overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Alg
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'imagenet' --seed 42
    ```
-5. In this experiment, we set the same step size for DADAM, DAMSGrad, and DSGD-N as those used in the CIFAR-10 experiment, because tuning stepsizes for them in CNN training on the large-scale ImageNet dataset (which consists of over 1.28 million images) would cost a substantial amount of time. 
+5. In this experiment, we set the same step size for DADAM, DAMSGrad, and DSGD-N as those used in the "CIFAR-10" experiment. This is because the large size of the "ImageNet" dataset makes stepsize tuning extremely time-consuming, and hence, we did not tune them for the comparison algorithms in this experiment. This fact also highlights the advantage of our tuning-free algorithm as a baseline algorithm, since its learning accuracy is not affected by any tuning parameter.
+
+### Experimental results
+<div style="text-align: center">
+  <img src="./figures/cifar10.png" alt="Fig5" width="900">
+</div>
+
+- Fig. a and Fig. b show the training-loss and (top-1) test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over $70$ epochs, respectively. The shaded area represents the 95% confidence interval. These results demonstrate that that Algorithm 3 with Q=1 (corresponding to Algorithm 1 using noisy rather than exact gradients) achieves a lower training loss and a higher test accuracy compared with DADAM, DAMSGrad, and DSGD-Nesterov's momentum even without any parameter tuning.
+- Fig. c and Fig. d show the average stepsize (of $5$ agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
+- Fig. e shows the comparison results of Algorithm 3 with ATC-DIGing (with $\eta=0.02$) and DSGD (with $\eta=10^{-4}$) in terms of communication rounds. The result demonstrate that Algorithm 3 with Q=15 dramatically reduces communication
+overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Algorithm 3 with Q=15 reaches a 0.7 test accuracy using only 200 communication rounds, whereas Algorithm 3 with Q=1 requires over 1000 communication rounds to achieve the same level of test accuracy.
+- Fig. f shows the (top-1) test-accuracy evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations in terms of communication rounds. The result indicates that too large Q will compromise convergence accuracy, and hence, choosing an appropriate Q is important for an asynchronous-parallel-update algorithm in CNN training.
+
+> Note: All experimental results (e.g., training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
 ## 🚀 Discussions
 
 ## References
 [1] [DGM-BB-C](https://doi.org/10.1007/s11432-020-3256-x)
+
 [2] [DGD](https://doi.org/10.1137/130943170)
+
 [3] [DADAM](https://ieeexplore.ieee.org/document/9973382)
+
 [4] [DAMSGrad](https://openreview.net/pdf?id=CI-xXX9dg9l)
+
 [5] [DSGD-N](https://proceedings.mlr.press/v97/yu19d/yu19d.pdf)
+
 [6] [ATC-DIGing](https://ieeexplore.ieee.org/document/7963560)
 
 
