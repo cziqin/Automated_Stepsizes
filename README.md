@@ -36,17 +36,17 @@ The experiments were conducted using the Windows 11 OS equipped with a 32-core C
 │   ├── results                         # save experimental results (.csv files)
 │   ├── loss_function.py                # the used loss function 
 │   ├── main.py                         # entry point
-│   ├── matrix.py                       # excuctes Subroutine 1, finite-time consensus, or imperfect consensus
+│   ├── matrix.py                       # excucte Subroutine 1, finite-time consensus, or imperfect consensus
 │   ├── mushrooms                       # the "mushrooms" datasets
 │   ├── optimizer.py                    # optimization algorithms
 │   └── train.py                        # script for model training and evaluation
 ├── Matirx_factorization
 │   ├── main.py                         # entry point
-│   ├── matrix.py                       # excuctes Subroutine 1, finite-time consensus, or imperfect consensus
+│   ├── matrix.py                       # excucte Subroutine 1, finite-time consensus, or imperfect consensus
 │   ├── optimizer.py                    # optimization algorithms
 │   └── u.data                          # the "MovieLens 100k" dataset
 ├── Neural_networks                         
-│   ├── datadeal.py                     # splits the downloaded "ImageNet" dataset into training and test sets          
+│   ├── datadeal.py                     # split the downloaded "ImageNet" dataset into training and test sets          
 │   ├── main.py                         # entry point
 │   ├── matrix.py                       # excuctes Subroutine 1 or finite-time consensus
 │   ├── models.py                       # the model used in the CNN training on the "CIFAR-10" dataset
