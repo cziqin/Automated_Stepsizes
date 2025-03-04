@@ -163,14 +163,14 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
 ## 💪 Neural network training
 > Note: Please change directory to [`./Neural_networks`](./Neural_networks) before running the following commands.
 ### Cifar 10
-1. You can use the following command to execute Algorithm 1 for the conventional neural network training task on the CIFAR-10 dataset:
+1. You can use the following command to execute Algorithm 1 for the conventional neural network training task on the "CIFAR-10" dataset:
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10'
    ```
    
    >Note: Before running the script, please ensure that the [`CIFAR-10`](https://www.cs.toronto.edu/~kriz/cifar.html) dataset has been downloaded and placed in the `./Neural_networks/data` directory.
 
-   - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 3; `1`: DADAM; `2`: DAMSGrad; `3`: DSGD-N; `4`: ATC-DIGing; `5`: DSGD.
+   - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 3; `1`: DADAM [3]; `2`: DAMSGrad [4]; `3`: DSGD-N [5]; `4`: ATC-DIGing [6]; `5`: DSGD [2].
    - `--epochs`: sets the number of training epochs.
    - `--batch_size`: sets the batch size for training.
    - `--dataset`: specifies the dataset to be used for training. The default option is 'cifar10'.
@@ -274,6 +274,10 @@ objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of 
 ## References
 [1] [DGM-BB-C](https://doi.org/10.1007/s11432-020-3256-x)
 [2] [DGD](https://doi.org/10.1137/130943170)
+[3] [DADAM](https://ieeexplore.ieee.org/document/9973382)
+[4] [DAMSGrad](https://openreview.net/pdf?id=CI-xXX9dg9l)
+[5] [DSGD-N](https://proceedings.mlr.press/v97/yu19d/yu19d.pdf)
+[6] [ATC-DIGing](https://ieeexplore.ieee.org/document/7963560)
 
 
 ## License
