@@ -52,6 +52,7 @@ The experiments were conducted using the Windows 11 OS equipped with a 32-core C
 │   ├── ops.py                          # optimization algorithms
 │   ├── resnet.py                       # the model used in the CNN training on the "ImageNet" dataset   
 │   └── train.py                        # script for model training and evaluation
+├── figures                             # figures used in the README document
 ├── LICENSE                             # License file
 ├── README.md                                             
 └── requirements.txt                    # list of dependencies required to run the project             
