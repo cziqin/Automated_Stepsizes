@@ -131,7 +131,7 @@ the later stages of convergence.
    ```shell
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
-4. In this experiment, we set the stepsize upper bound $10$ for the DGM-BB-C [1] and set the stepsize $\eta=10^{-4}$ for the DGD [2] that gave us the best performance in the stepsize tuning process. The losses of DGD under different stepsize settings have been summarized in the following table:
+4. In this experiment, we set the stepsize upper bound $10$ for the DGM-BB-C [1] and set the stepsize $\eta=10^{-4}$ for the DGD [2] that gave us the best performance in the stepsize tuning process. The losses of DGD under different stepsize settings have been summarized in Table S1:
    <table>
       <caption><b>Table S1</b> Loss of DGD [2] under different stepsize settings after 200 iterations in the matrix factorization experiment using the MovieLens 100k dataset.</caption>
     <tr>   <th rowspan="2">Stepsize</th>    <th colspan="2">Loss</th>   </tr>
@@ -146,7 +146,7 @@ the later stages of convergence.
     <tr>   <td>10<sup>-1</sup></td> <td>nan</td>   </tr>
     <tr>   <td>10<sup>0</sup></td> <td>nan</td>   </tr>
    </table>
-   > Since the standard deviations of DGD's and Algorithm's losses are both less than 0.001, they are omitted in this table.
+   >Since the standard deviations of DGD's and Algorithm's losses are both less than 0.001, they are omitted in this table.
 
 ### Experimental results
 <div style="text-align:center">
@@ -160,7 +160,7 @@ the later stages of convergence.
 - Fig. e shows the loss evolution of  Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD with respect to communication rounds, respectively. The results show that although increasing K to 10 for Algorithm 2 improves the convergence performance (see Fig. a for details), it also results in an increase in communication complexity. 
 - Fig. f shows the used wallclock time and associated loss of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C, and DGD, respectively. The results demonstrate that Algorithm 3 with Q=10 setps of local updates achieves the shortest wallclock time among all comparision algorithms. However, the reduced communication complexity and wallclock time in Algroithm 3 come at the price of reduced convergence accuracy compared with algorithms that communicate every time a gradient descent is conducted, as evidenced by Fig. a, where Algorithm 1, Algorithm 2 (with K=1 and K=10, respectively), and DGM-BB-C that execute synchronous communication and computation have a higher convergence accuracy than Algorithm~3 with Q=5.
 
-> Note: All experimental results (e.g., loss, wallclock time, and average stepsizes) will be autonomously saved as `.csv` files in the `./Matrix_factorization/results` directory.
+>Note: All experimental results (e.g., loss, wallclock time, and average stepsizes) will be autonomously saved as `.csv` files in the `./Matrix_factorization/results` directory.
 
 ## Neural network training
 > Note: Please change directory to [`./Neural_networks`](./Neural_networks) before running the following commands.
@@ -188,9 +188,9 @@ the later stages of convergence.
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10' --seed 42
    ```
-5. In this experiment, we set the stepsizes $\eta=0.005$, $\eta=0.1$, and $\eta=0.5$ for DADAM [3], DAMSGrad [4], and DSGD Nesterov's momentum [5], respectively, after systematic tuning. The performance of these algorithms under the tried parameters in the tuning process in the following table:
+5. In this experiment, we set the stepsizes $\eta=0.005$, $\eta=0.1$, and $\eta=0.5$ for DADAM [3], DAMSGrad [4], and DSGD Nesterov's momentum [5], respectively, after systematic tuning. The performance of these algorithms under the tried parameters in the tuning process in Table S2:
 <table>
-   <caption><b>Table S2</b> Test accuracies of Algorithm 3, DADAM [3], DAMSGrad [4], and DSGD-N [5] under different learning-rate parameters after $70$ epochs in the CNN experiment using the CIFAR-10 dataset.</caption>
+   <caption><b>Table S2</b> Test accuracies of Algorithm 3, DADAM [3], DAMSGrad [4], and DSGD-N [5] under different learning-rate parameters after 70 epochs in the CNN experiment using the CIFAR-10 dataset.</caption>
     <tr> 
         <th rowspan="2">Stepsize</th>    
         <th colspan="4">Test accuracy</th>
@@ -243,15 +243,16 @@ the later stages of convergence.
 </table>
 
 ### Experimental results
-<div style="text-align: center">
+<figure style="text-align: center">
   <img src="./figures/cifar10.png" alt="Fig5" width="900">
-</div>
+</figure>
 
-- Fig. a and Fig. b show the training-loss and (top-1) test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over 70 epochs, respectively. The shaded area represents the 95% confidence interval. These results demonstrate that that Algorithm 3 with Q=1 (corresponding to Algorithm 1 using noisy rather than exact gradients) achieves a lower training loss and a higher test accuracy compared with DADAM, DAMSGrad, and DSGD-Nesterov's momentum even without any parameter tuning.
-- Fig. c and Fig. d show the average stepsize (of 5 agents) in the five algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
-- Fig. e shows the comparison results of Algorithm 3 with ATC-DIGing (with $\eta=0.02$) and DSGD (with $\eta=10^{-4}$) in terms of communication rounds. The result demonstrate that Algorithm 3 with Q=15 dramatically reduces communication
-overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Algorithm 3 with Q=15 reaches a 0.7 test accuracy using only 200 communication rounds, whereas Algorithm 3 with Q=1 requires over 1000 communication rounds to achieve the same level of test accuracy.
-- Fig. f shows the (top-1) test-accuracy evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations in terms of communication rounds. The result indicates that too large Q will compromise convergence accuracy, and hence, choosing an appropriate Q is important for an asynchronous-parallel-update algorithm in CNN training.
+
+- Fig. a and Fig. b show the training-loss and (top-1) test-accuracy evolution of Algorithm 3 with Q=1, Algorithm 3 with Q=10, DADAM, DAMSGrad, and DSGD-N over 70 epochs, respectively. The shaded area represents the 95% confidence interval. These results demonstrate that that Algorithm 3 with Q=1 (corresponding to Algorithm 1 using noisy rather than exact gradients) achieves a lower training loss and higher test accuracy compared with DADAM, DAMSGrad, and DSGD with Nesterov's momentum. While DADAM is slightly faster than our algorithm in the first 20 epochs, its performance is highly dependent on careful tuning, which is not a trivial task. If we do not tune DADAM, it almost always underperforms our algorithm, as evidenced by Table S2. In contrast, our Algorithm~\ref{algorithm3} is tuning free.
+- Fig. c and Fig. d show the average stepsize (of 5 agents) in the four algorithms. The error bar in scatter plot represents standard deviation. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
+- Fig. e shows The test-accuracy evolution of Algorithm 3 (with Q=1 and Q=15, respectively), ATC-DIGing [6], and DSGD [2] with respect to communication rounds, respectively.
+ The results demonstrate that Algorithm 3 with Q=15 dramatically reduces communication overhead and speeds up convergence (as shown in the yellow curve in Fig. 5e, Algorithm 3 with Q=15 reaches a 0.7 test accuracy using only 200 communication rounds, whereas Algorithm 3 with Q=1 requires over 1000 communication rounds to achieve the same level of test accuracy).
+- Fig. f shows the test-accuracy evolution of Algorithm 3 under different numbers of local updates (i.e., different parameters Q) with respect to communication rounds. The results indicate that an excessively large value of Q (e.g., Q = 50) will compromise convergence accuracy. Q should be chosen based on application scenarios in practice.
 
 > Note: All experimental results (e.g., training loss, test accuracy, average stepsizes, etc.) will be automatically saved as `.csv` files in the `./Neural_networks/results` directory.
 
