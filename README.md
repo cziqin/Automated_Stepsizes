@@ -104,12 +104,12 @@ Ensure that each dataset is downloaded and placed in its corresponding directory
 </div>
 
 - Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively. 
-  The results demonstrate that Algorithm 1 has better convergence accuracy compared with its single-loop variant (Algorithm 2 with K=1, its asynchronous-parallel-update variant (Algorithm 3 with Q=10), the decentralized adaptive algorithm with Barzilai-Borwein stepsizes (DGM-BB-C [1]), and DGD [2].
+  The results demonstrate that Algorithm 1 has better convergence accuracy compared with its single-loop variant (Algorithm 2 with K=1）, its asynchronous-parallel-update variant (Algorithm 3 with Q=10), the decentralized adaptive algorithm with Barzilai-Borwein stepsizes (DGM-BB-C [1]), and DGD [2].
 - Fig. b and Fig. c show the scatter and box plots of the average stepsize of five agents in the comparison algorithms. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
 - Fig. d shows the loss evolution of Algorithm 3 under different numbers of local updates in each communication round. The results demonstrate that a moderate number of local updates in each communication round can reduce communication overhead and speed up convergence. However, a too high number of local updates in each communication round leads to degraded convergence accuracy, especially in
 the later stages of convergence. 
-- Fig. e shows the loss evoluation of  Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD with respect to communication rounds, respectively. The results demonstrate that Algorithm 3 with Q=10 setps of local updates achieves the lowest communication overhead among all comparision algorithms. 
-- Fig. f show the used wallclock time and associated loss of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C, and DGD, respectively. The results demonstrate that Algorithm 3 with Q=10 setps of local updates achieves the shortest wallclock time among all comparision algorithms. 
+- Fig. e shows the loss evolution of  Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD with respect to communication rounds, respectively. The results demonstrate that Algorithm 3 with Q=10 setps of local updates achieves the lowest communication overhead among all comparision algorithms. 
+- Fig. f shows the used wallclock time and associated loss of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C, and DGD, respectively. The results demonstrate that Algorithm 3 with Q=10 setps of local updates achieves the shortest wallclock time among all comparision algorithms. 
 
 > Note: All experimental results (e.g., loss, wallclock time, and average stepsizes) will be autonomously saved as `.csv` files in the `./Logistic_regression/results` directory.
 
