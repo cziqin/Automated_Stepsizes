@@ -123,17 +123,18 @@ the later stages of convergence.
    ![Matrix](./figures/Matrix_factorization_execution.gif)
    - `--test_num`: specifies the optimization algorithm to be trained: `0`:Algorithm 1; `1`: Algorithm 2; `2`: DGM-BB-C; `3`: DGD.
    - `--iterations`: sets the number of training iterations.
-2. To execute Algorithm 2 with a desired number of inner-consensus-loop iterations K (e.g., K=10), you can run the following command:
+2. To execute Algorithm 2 with a desired number of inner-loop iterations K (e.g., K=10), you can run the following command:
    ```shell
    python main.py --test_num 1 --iterations 1000 --k_loop 10
    ```
-3. To execute Algorithm 3 with a desired number of asynchronous-parallel-update iterations Q (e.g., Q=10), you can run the following command:
+3. To execute Algorithm 3 with a desired number of local updates Q (e.g., Q=10), you can run the following command:
    ```shell
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
-4. In this experiment, we set the stepsize $\eta=10^{-4}$ for the DGD, since it was the almost optimal stepsize that we could find based on the following convergence results of DGD [2] under different stepsize settings after 200 iterations:
+4. In this experiment, we set the stepsize upper bound $10$ for DGM-BB-C [1] and set the stepsize $\eta=10^{-4}$ for the DGD [2] that gave us the best performance in the stepsize tuning process. The losses of DGD under different stepsize settings have been summarized in
+the following table:
    <table>
-     <tr> <th rowspan="2">Algorithms</th> <th colspan="9">Stepsizes</th>
+     <tr> <th rowspan="2">Loss</th> <th colspan="9">Stepsize</th>
      </tr>
      <tr> <th>$10^{-8}$</th>   <th>$10^{-7}$</th>   <th>$10^{-6}$</th> <th>$10^{-5}$</th>   <th>$10^{-4}$</th>   <th>$10^{-3}$</th>
        <th>$10^{-2}$</th>   <th>$10^{-1}$</th>   <th>$10^{0}$</th>
