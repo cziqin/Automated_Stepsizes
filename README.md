@@ -131,22 +131,24 @@ the later stages of convergence.
    ```shell
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
-4. In this experiment, we set the stepsize upper bound $10$ for DGM-BB-C [1] and set the stepsize $\eta=10^{-4}$ for the DGD [2] that gave us the best performance in the stepsize tuning process. The losses of DGD under different stepsize settings have been summarized in
-the following table:
-   <table>
-     <tr> <th rowspan="2">Loss</th> <th colspan="9">Stepsize</th>
-     </tr>
-     <tr> <th>$10^{-8}$</th>   <th>$10^{-7}$</th>   <th>$10^{-6}$</th> <th>$10^{-5}$</th>   <th>$10^{-4}$</th>   <th>$10^{-3}$</th>
-       <th>$10^{-2}$</th>   <th>$10^{-1}$</th>   <th>$10^{0}$</th>
-     </tr>
-     <tr>
-       <td>DGD</td> <td>5.673 </td>  <td>5.667</td>  <td>5.614</td>  <td>5.330</td>
-       <td><b>5.135</b></td>  <td>nan</td>  <td>nan</td>  <td>nan</td>  <td>nan</td>
-     </tr>
-     <tr>
-       <td>Algorithm 1 </td>  <td colspan="9"><b>5.095</b></td>
-     </tr>
-   </table>
+4. In this experiment, we set the stepsize upper bound $10$ for the DGM-BB-C [1] and set the stepsize $\eta=10^{-4}$ for the DGD [2] that gave us the best performance in the stepsize tuning process. The losses of DGD under different stepsize settings have been summarized in the following table:
+   <div style="text-align: center;">
+    <table style="margin: auto; border-collapse: collapse;">
+    <tr>   <th rowspan="2">Stepsize</th>    <th colspan="2">Loss</th>   </tr>
+    <tr>   <th>DGD</th>   <th>Algorithm 1 (with no tuning)</th>   </tr>
+    <tr>   <td>10<sup>-8</sup></td> <td>5.673</td>   <td rowspan="9"><b>5.095</b></td>   </tr>
+    <tr>   <td>10<sup>-7</sup></td> <td>5.667</td>   </tr>
+    <tr>   <td>10<sup>-6</sup></td> <td>5.614</td>   </tr>
+    <tr>   <td>10<sup>-5</sup></td> <td>5.330</td>   </tr>
+    <tr>   <td>10<sup>-4</sup></td> <td><b>5.135</b></td>   </tr>
+    <tr>   <td>10<sup>-3</sup></td> <td>nan</td>   </tr>
+    <tr>   <td>10<sup>-2</sup></td> <td>nan</td>   </tr>
+    <tr>   <td>10<sup>-1</sup></td> <td>nan</td>   </tr>
+    <tr>   <td>10<sup>0</sup></td> <td>nan</td>   </tr>
+      </table>
+   </div>
+
+
    
    >Since the standard deviations of DGD's and Algorithm's losses are both less than 0.001, they are omitted in this table.
 
