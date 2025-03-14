@@ -132,8 +132,8 @@ the later stages of convergence.
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
 4. In this experiment, we set the stepsize upper bound $10$ for the DGM-BB-C [1] and set the stepsize $\eta=10^{-4}$ for the DGD [2] that gave us the best performance in the stepsize tuning process. The losses of DGD under different stepsize settings have been summarized in the following table:
-   <div style="text-align:center">
-    <table style="margin: auto; border-collapse: collapse">
+   <table>
+      <caption><b>Table S1</b> Loss of DGD [2] under different stepsize settings after 200 iterations in the matrix factorization experiment using the MovieLens 100k dataset.</caption>
     <tr>   <th rowspan="2">Stepsize</th>    <th colspan="2">Loss</th>   </tr>
     <tr>   <th>DGD</th>   <th>Algorithm 1 (with no tuning)</th>   </tr>
     <tr>   <td>10<sup>-8</sup></td> <td>5.673</td>   <td rowspan="9"><b>5.095</b></td>   </tr>
@@ -145,9 +145,8 @@ the later stages of convergence.
     <tr>   <td>10<sup>-2</sup></td> <td>nan</td>   </tr>
     <tr>   <td>10<sup>-1</sup></td> <td>nan</td>   </tr>
     <tr>   <td>10<sup>0</sup></td> <td>nan</td>   </tr>
-      </table>
-   </div>
-   >Since the standard deviations of DGD's and Algorithm's losses are both less than 0.001, they are omitted in this table.
+   </table>
+   > Since the standard deviations of DGD's and Algorithm's losses are both less than 0.001, they are omitted in this table.
 
 ### Experimental results
 <div style="text-align:center">
@@ -189,11 +188,12 @@ the later stages of convergence.
    ```shell
    python main.py --test_num 0 --epochs 70 --batch_size 128 --dataset 'cifar10' --seed 42
    ```
-5. In this experiment, we set the stepsize $\eta=0.005$ for DADAM, $\eta=0.1$ for DAMSGrad, and $\eta=0.5$ for DSGD-N, respectively, since they were the almost optimal stepsizes that we could find based on the following test-accuracy results after 100 epochs:
+5. In this experiment, we set the stepsizes $\eta=0.005$, $\eta=0.1$, and $\eta=0.5$ for DADAM [3], DAMSGrad [4], and DSGD Nesterov's momentum [5], respectively, after systematic tuning. The performance of these algorithms under the tried parameters in the tuning process in the following table:
 <table>
+   <caption><b>Table S2</b> Test accuracies of Algorithm 3, DADAM [3], DAMSGrad [4], and DSGD-N [5] under different learning-rate parameters after $70$ epochs in the CNN experiment using the CIFAR-10 dataset.</caption>
     <tr> 
-        <th rowspan="2">Stepsizes</th>    
-        <th colspan="4">Algorithms</th>
+        <th rowspan="2">Stepsize</th>    
+        <th colspan="4">Test accuracy</th>
     </tr>
     <tr> 
         <th>DADAM</th>   
