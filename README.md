@@ -132,8 +132,8 @@ the later stages of convergence.
    python main.py --test_num 0 --iterations 1000 --const_q 10
    ```
 4. In this experiment, we set the stepsize upper bound $10$ for the DGM-BB-C [1] and set the stepsize $\eta=10^{-4}$ for the DGD [2] that gave us the best performance in the stepsize tuning process. The losses of DGD under different stepsize settings have been summarized in the following table:
-   <div style="text-align: center;">
-    <table style="margin: auto; border-collapse: collapse;">
+   <div style="text-align:center">
+    <table style="margin: auto; border-collapse: collapse">
     <tr>   <th rowspan="2">Stepsize</th>    <th colspan="2">Loss</th>   </tr>
     <tr>   <th>DGD</th>   <th>Algorithm 1 (with no tuning)</th>   </tr>
     <tr>   <td>10<sup>-8</sup></td> <td>5.673</td>   <td rowspan="9"><b>5.095</b></td>   </tr>
@@ -147,9 +147,6 @@ the later stages of convergence.
     <tr>   <td>10<sup>0</sup></td> <td>nan</td>   </tr>
       </table>
    </div>
-
-
-   
    >Since the standard deviations of DGD's and Algorithm's losses are both less than 0.001, they are omitted in this table.
 
 ### Experimental results
@@ -157,11 +154,12 @@ the later stages of convergence.
   <img src="./figures/matrix_factorization.png" alt="Fig4" width="900">
 </div>
 
-- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1 [1], and DGD [2] over 150 iterations, respectively. The result indicate that even under under nonconvex and nonsmooth
-objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of optimization accuracy.
-- Fig. b and Fig. c show the scatter and box plots of the average stepsize of five agents in the comparison algorithms. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test.
-- Fig. d shows the loss evolution of Algorithm 3 under different numbers of asynchronous-parallel-update iterations. 
-- Fig. e and Fig. f show the comparison results of Algorithm 1 with Algorithm 2, Algorithm 3, DGM-BB-C, and DGD in terms of the used communication rounds and wallclock time, respectively. 
+- Fig. a shows the loss evolution of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD over iterations, respectively. 
+  The results demonstrate that even under nonconvex and nonsmooth objective functions, Algorithm 1 still outperforms DGD and DGM-BB-C in terms of optimization accuracy.
+- Fig. b and Fig. c show the scatter and box plots of the average stepsize of five agents in the comparison algorithms. Box plots show the median, 1st and 3rd quartiles, and 5th to 95th percentiles. P-values were calculated via one-way analysis of variance (ANOVA) with Tukey's multiple comparison test. The results indicate that the better performance of Algorithm 1 than the comparision algorithms is attributed to a larger stepsize produced by our approach.
+- Fig. d shows the loss evolution of Algorithm 3 under different numbers of local updates in each communication round. The results once again confirm that a moderate number of local updates in each communication round can reduce communication overhead and speed up convergence.
+- Fig. e shows the loss evolution of  Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C with K=1, and DGD with respect to communication rounds, respectively. The results show that although increasing K to 10 for Algorithm 2 improves the convergence performance (see Fig. a for details), it also results in an increase in communication complexity. 
+- Fig. f shows the used wallclock time and associated loss of Algorithm 1, Algorithm 2 with K=1, Algorithm 2 with K=10, Algorithm 3 with Q=10, DGM-BB-C, and DGD, respectively. The results demonstrate that Algorithm 3 with Q=10 setps of local updates achieves the shortest wallclock time among all comparision algorithms. However, the reduced communication complexity and wallclock time in Algroithm 3 come at the price of reduced convergence accuracy compared with algorithms that communicate every time a gradient descent is conducted, as evidenced by Fig. a, where Algorithm 1, Algorithm 2 (with K=1 and K=10, respectively), and DGM-BB-C that execute synchronous communication and computation have a higher convergence accuracy than Algorithm~3 with Q=5.
 
 > Note: All experimental results (e.g., loss, wallclock time, and average stepsizes) will be autonomously saved as `.csv` files in the `./Matrix_factorization/results` directory.
 
